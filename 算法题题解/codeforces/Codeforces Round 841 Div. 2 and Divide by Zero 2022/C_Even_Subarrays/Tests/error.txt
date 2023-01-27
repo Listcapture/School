@@ -1,0 +1,1 @@
+Command failed: "c:/My_code/Codeforces Round 841 Div. 2 and Divide by Zero 2022/C_Even_Subarrays/Tests/a.exe" 1 < "c:/My_code/Codeforces Round 841 Div. 2 and Divide by Zero 2022/C_Even_Subarrays/Tests/input_1.txt" > "c:/My_code/Codeforces Round 841 Div. 2 and Divide by Zero 2022/C_Even_Subarrays/Tests/code_output_1.txt"
