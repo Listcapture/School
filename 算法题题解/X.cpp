@@ -10,18 +10,57 @@ clock_t startTime;
 double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
-LL w[N],v[N];
+string a,b;
+int p[10];
 void solve()
 {
-  int n,m;
-  cin>>n>>m;
-  for(int i=1;i<=n;i++)
-  {
-    cin>>w[i]>>v[i];
-  }
-
+   cin>>a>>b;
+   int lena=a.length(),lenb=b.length();
+   memset(p,-1,sizeof p);
+   bool sp=0;
+   if(lena==lenb)
+   {
+       if(a==b) cout<<"="<<endl;
+       else cout<<"!"<<endl;
+   }else 
+   {
+      if(lena<lenb) swap(a,b),swap(lena,lenb),sp=true; 
+      int len=max(lena,lenb);
+      int l=0,r=9;
+      int status=0;
+      for(int i=0;i<lena-lenb;i++)
+      {
+          char sa=a[i]-'0';
+          if(p[sa]==-1) p[sa]=l++;
+          if(p[sa]>0) 
+          {
+              cout<<(sp?"<":">")<<endl;
+              return ;
+          }
+      }
+       bool can=true;
+       int tlen=lena-lenb;
+      for(int i=lena-lenb;i<lena;i++)
+      {
+          int  sa=a[i]-'0',sb=b[i-tlen]-'0';
+          if(p[sa]==-1) p[sa]=l++;
+          if(p[sb]==-1) p[sb]=r--;
+          
+          if(p[sa]>p[sb]) 
+          {
+              cout<<(sp?"<":">")<<endl;
+              return  ;
+          }else if(p[sa]<p[sb])
+          {
+            cout<<"!"<<endl;
+            return ;
+          }
+      }
     
-
+       
+       cout<<"!"<<endl;
+   }
+    
 }
 
 int main()

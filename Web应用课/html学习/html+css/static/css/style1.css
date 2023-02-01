@@ -1,0 +1,33 @@
+
+/* 全部img标签引用此定义风格 */
+img{
+ width :200px;
+ height :200px;
+ border-radius: 50%;
+}
+div
+{
+background-color: pink;
+width:200px;
+}
+.p
+{
+width:200px;
+height:150px;
+
+}
+div
+{
+width:300px;
+height:200px;
+background-color: pink;
+}
+.blue-p
+{
+background-color: pink
+}
+.big
+{
+width:200px;
+height:144px;
+}
