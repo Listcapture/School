@@ -10,24 +10,24 @@ clock_t startTime;
 double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
-queue<int >q[30];
+int primes[N],cnt;
+bool st[N];
+void init()
+{
+    for(int i=2;i<N;i++)
+    {
+        if(!st[i]) primes[cnt++]=i;
+        for(int j=0;primes[j]*i<N;j++)
+        {
+            st[primes[j]*i]=true;
+            if(i%primes[j]==0) break;
+        }
+    }
+}
+
 void solve()
 {
-    int n,k;
-    cin>>n>>k;
-    string s;
-    for(int i=0;s[i];i++)
-    {
-        q[s[i]-'a'].push(i);
-    }
-    string s1,s2,s3;
-    int cur=0;
-    for(int i=1;i<=n;i++)
-    {
-        
-    }
     
-    cout<<s1<<" "<<s2<<endl;
     
 }
 
@@ -39,8 +39,6 @@ int main()
     while(tt--)
     {
         solve();
-        
-
-        printf("%.2lf",getCurrentTime());
+        //printf("%.2lf",getCurrentTime());
     }
 }
