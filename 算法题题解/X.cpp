@@ -15,54 +15,46 @@ clock_t startTime;
 double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
-LL x,y,P;
-const int M=330;
+queue<int >q[30];
+LL n,k;
+string s;
 
-LL f[M][M],h[M][M];
-int dx[]={0,0,1,-1},dy[]={1,-1,0,0};
-short dp(LL x,LL y)
+bool cmp(char a,char b)
 {
-    if(f[x][y]) return f[x][y];
-    f[x][y]=-1;
-    int tv=1;
-    for(int i=0;i<4;i++)
-    {
-      int a=x+dx[i],b=y+dy[i];
-      if(a>=1&&a<=n&&b>=1&&b<=m&&h[a][b]<h[x][y])
-      {
-        tv=max(tv,dp(a,b)+1);
-      }
-    }
-    return f[x][y]=tv;
-    
+  return a>b;
 }
-
 void solve()
 {
-   int n,m;
-   cin>>n>>m;
-   for(int i=1;i<=n;i++)
+   cin>>n>>k>>s;
+   string head,tail;
+   for(int i=0;s[i];i++)
    {
-    for(int j=1;j<=m;j++)
-    {
-      cin>>h[i][j];
-    }
+      while(head.size()&&head.size()<s[i]&&k)
+      { 
+        tail.push_back(head.back());
+        head.pop_back();
+        k--;
+      }
+      head.push_bacK(s[i]);
    }
-   int ans=0;
-   for(int i=1;i<=n;i++)
+   while(k&&head.size())
    {
-    for(int j=1;j<=m;j++)
-    {
-      ans=max(ans,dp(i,j));
-    }
+    tail.push_back(head.back());
+    head.pop_back;
+    k--;
    }
-   cout<<ans<<endl;
-}
+   sort(tail.begin(),tail.end(),greater());
+   cout<<head+tail<<endl;
 
+ 
+}
+//ddcbaba ccaa k=2
+//cadbcadbc
 int main()
 {
     int tt;
-    cin>>tt>>P;
+    tt=1;
+    init();
     startTime = clock();
     while(tt--)
     {
