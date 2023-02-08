@@ -1,0 +1,35 @@
+div
+{
+    width: 100vw;
+    height:30vh;
+    border-spacing: 10px;
+    
+}
+div:nth-child(1) 
+{
+    background-color: lightblue;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 5px 5px 2px red;
+}
+div:nth-child(2)
+{
+  
+  background-image: url('/html学习/html+css/static/images/img1.jpg');
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+}
+div:nth-child(3)
+{
+    background-image:url("/html学习/html+css/static/images/logo.png");
+    background-size: 50% 100% 50% 100%;
+    background-repeat: no-repeat;
+    background-position: top left,150px 0;
+}
+div:nth-child(4)
+{
+    background-image: url('/html学习/html+css/static/images/img1.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: fixed;
+}

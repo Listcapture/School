@@ -1,0 +1,46 @@
+.container
+{
+    display:block;
+    width:500px;
+    height: 500px;
+    padding: 10px;
+    margin:20px;
+    background-color: lightblue;
+
+
+
+}
+.inline-block-div
+{
+    display:inline-block;
+    width:100px;
+    height:100px;
+    padding:10px;
+    margin:10px;
+    background-color: blue;
+    color:white;
+    
+
+}
+span
+{
+    display:inline;
+    padding-inline: 10px;
+    margin-inline:10px;
+    background-color: bisque;
+    color: green;
+
+}
+.block-div
+{
+    display: block;
+    width:100px;
+    height:100px;
+    padding:10px;
+    margin:10px;
+    background-color: blue;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
