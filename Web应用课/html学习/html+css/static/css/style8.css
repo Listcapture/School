@@ -1,0 +1,45 @@
+body
+{
+    height: 2000px;
+    margin:0;
+}
+div{
+    width:200px;
+    height:200px;
+    background-color: lightblue;
+    margin:20px;
+}
+div:nth-child(1)
+{
+    position: static;
+
+}
+div:nth-child(2)
+{
+    position: relative;
+    left:50px;
+    top:15px;
+
+}
+div:nth-child(3)
+{
+    position: absolute;
+    background-color: rgba(0,0,255,0.5);
+    left:30px;
+    top:30px;
+}
+div:nth-child(4)
+{
+    position: fixed;
+    left:100px;
+    top:250px;
+
+
+}
+div:nth-child(10)
+{
+    position: sticky;
+    background-color: rgba(255,0,0,0.5);
+    bottom:10px;
+}
+

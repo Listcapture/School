@@ -1,0 +1,25 @@
+div
+{
+    width:300px;
+    height:300px;
+    margin:10px;
+    padding:10px;
+    background-color: lightblue;
+    border-style: solid,10px,gray;
+    color:rgb(78, 51, 154);
+
+
+}
+div :first-child
+{
+    box-sizing: content-box;
+}
+div :nth-child(2)
+{
+    box-sizing: border-box;
+}
+
+
+
+
+
