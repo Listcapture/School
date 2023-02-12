@@ -1,0 +1,23 @@
+.container
+{
+    width:500px;
+    height:500px;
+    background-color:lightblue;
+    
+}
+.item
+{
+    width:100px;
+    height: 100px;
+    margin:10px;
+    background-color: lightcoral;
+    float:left;
+    
+}
+.next-line
+{
+    width:150px;
+    height:150px;
+    background-color: rgba(0,0,255,0.5);
+    clear: both;
+}

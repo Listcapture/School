@@ -13,57 +13,41 @@ clock_t startTime;
 double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
-const int N=1e6+10;
-int n,m;
-LL mx,my;
-LL tr1[N],tr2[N];
-LL a[N];
-PLL p[N];
-LL ans[N];
-bool cmp(PLL a,PLL b)
-{
-  if(a.fir!=b.fir) return a.fir<b.fir;
-  return a.sec<b.sec;
-}
-void add(LL x,LL d,int status)
-{
-   while(x<=mx) tr1[x]+=d,x+=lowbit(x);
-}
-LL query(LL r,int status)
-{
+const int N=2e5+10;
 
-  LL res=0;
-  while(r) res+=tr1[r],r-=lowbit(r);
-  return res;
-}
+int n;
+int a[N];
+// fi 表示大于 i 的 距里 i 最近的数的位置。
+map<LL,LL >cnt;
 void solve()
 {
-    cin>>n;
-    for(int i=1;i<=n;i++)cin>>a[i],a[i]++,mx=max(mx,a[i]);
-    for(int i=1;i<=n;i++)
-    { 
-      ans[i]+=query(a[i],0);
-      add(1,1,0),add(a[i],-1,0);
-    }
-    rep(i,1,mx) tr1[i]=0;
-    for(int i=n;i>=1;i--)
-    {
-       ans[i]+=query(a[i],0);
-       add(a[i]+1,1,0);
-    }
-    LL res=0;
+ cin>>n;
+ rep(i,1,n)cin>>a[i];
+ if(a[i]%2==1)
+ {
+    cout<<0<<endl;
+ }else 
+ {
     rep(i,1,n)
     {
-      
-      res+=ans[i]*(ans[i]+1);
+        if(a[i]<a[1])
+        {
+            cout<<1<<endl;
+            return ;
+        }
     }
-    cout<<res/2<<endl;
-    
+    cout<<-1<<endl;
+    return ;
+ }
+   
+   
+
 }
 int main()
 {
     int tt;
-    tt=1;
+    cin>>tt;
+
     startTime = clock();
     while(tt--)
     {
