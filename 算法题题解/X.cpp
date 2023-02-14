@@ -14,39 +14,41 @@ double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
 const int N=2e5+10;
+LL n;
 
-int n;
-int a[N];
-// fi 表示大于 i 的 距里 i 最近的数的位置。
-map<LL,LL >cnt;
+
+
 void solve()
 {
- cin>>n;
- rep(i,1,n)cin>>a[i];
- if(a[i]%2==1)
- {
-    cout<<0<<endl;
- }else 
- {
-    rep(i,1,n)
+    cin>>n;
+    LL k=sqrt(n);
+    rep(a,0,k)
     {
-        if(a[i]<a[1])
+      LL s1=a*a;
+      rep(b,0,k)
+      {
+        LL s2=s1+b*b;
+        rep(c,0,k)
         {
-            cout<<1<<endl;
-            return ;
+          LL s3=s2+c*c;
+          rep(d,k,0)
+          {
+            LL s4=s3+d*d;
+            if(s4==n)
+            {
+              cout<<a<<" "<<b<<" "<<c<<" "<<d<<endl;
+              return ;
+            }
+          }
         }
+      }
     }
-    cout<<-1<<endl;
-    return ;
- }
-   
-   
-
+    
 }
 int main()
 {
     int tt;
-    cin>>tt;
+    tt=1;
 
     startTime = clock();
     while(tt--)
