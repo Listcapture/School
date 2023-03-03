@@ -1,158 +1,693 @@
-<!--
-**sfc9982/sfc9982** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+目录
+第一章.软件工程概述
 
-Here are some ideas to get you started:
+1.1软件
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+1.2软件危机
 
-## sfc9982
+1.3软件工程
 
-![0xDEC99CC0DE0778DD](/pgp-key-id-0xdec99cc0de0778dd.svg)
+1.4软件生命周期
 
-<img align="right" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sfc9982&theme=github_dark" width="72%">
+1.5软件过程
 
-<!-- ![1](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=sfc9982&theme=github_dark&timezone=Asia/ShangHai) -->
-<!-- ![2](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sfc9982&theme=github_dark) -->
+第二章.可行性研究
 
-<!-- <img align="right" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=sfc9982&theme=github_dark&timezone=Asia/ShangHai" width="35%">
-<img align="right" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sfc9982&theme=github_dark" width="35%"> -->
-[<img align="right" src="https://github-readme-stats.vercel.app/api?username=sfc9982&count_private=true&show_icons=true&theme=tokyonight">](https://github.com/sfc9982)
+2.1可行性研究的任务
 
-Hi, there!
+2.2可行性研究过程：
 
-- 💻 Windows user
-- 📱 Android user
-- 👨‍🎓 Undergraduate University Student
-- ⚡️ Programmer
-- 💞 ACGN lover
+2.3系统流程图
 
-### 💻 Operating System:
+2.4数据流图（DFD）
 
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Arch](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Cent OS](https://img.shields.io/badge/cent%20os-002260?style=for-the-badge&logo=centos&logoColor=F0F0F0)
-![Windows 10 Pro](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![Kali](https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white)
-![OpenWRT](https://img.shields.io/badge/OpenWrt-00B5E2?style=for-the-badge&logo=OpenWrt&logoColor=white)
+2.5数据字典(DD)
 
-### Working Languages
+2.6成本和效益分析
 
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Golang](https://img.shields.io/badge/Golang-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
-![LaTeX](https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white)
-<!-- ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) -->
-![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
-![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)
-<!-- ![Scala](https://img.shields.io/badge/scala-%23DC322F.svg?style=for-the-badge&logo=scala&logoColor=white) -->
+第三章.需求分析(软件需求规格说明书)
 
-### Working Frameworks, Platforms and Libraries
+3.1需求分析的任务
+
+3.2与用户沟通获取需求的方法：
+
+3.3分析建模与规格书明书(略)
+
+3.4E-R图
+
+3.5数据规范化
+
+3.6状态转换图 (略)
+
+3.7其他图形工具
+
+3.8验证软件需求
+
+第四章.形式化说明技术（略）
+
+第五章.总体设计
+
+5.1设计过程
+
+5.2设计原理
+
+5.3启发规则
+
+5.4描绘软件结构的图形
+
+5.5数据流
+
+第六章.详细设计
+
+详细设计的根本目的：
+
+6.1结构程序设计
+
+6.2人机界面设计
+
+6.3过程设计的工具：
+
+6.4面向数据结构的设计方法
+
+6.5程序复杂度定量
+
+6.6Halstead方法
+
+第七章.实现
+
+实现定义:
+
+7.1编码（略）
+
+7.2软件测试
+
+7.3单元测试：
+
+7.4集成测试
+
+7.5确认测试
+
+7.6白盒测试 
+
+7.7黑盒测试  
+
+7.8调试
+
+7.9软件可靠性
+
+7.10估算平均无故障时间的方法
+
+第八章.维护
+
+8.1软件维护的定义   
+
+8.2软件维护的特点
+
+8.3软件的可维护性
+
+第九章.面向对象方法引论
+
+9.1对象
+
+9.2其他面向对象定义​
+
+9.3面向对象的四个要点：
+
+9.4UML中常见关系
+
+第十章.面向对象分析
+
+10.1面向对象分析的基本过程
+
+10.2需求陈述（略）
+
+10.3建立对象模型
+
+第十一章.面向对象设计（略）
+
+第十二章.面向对象实现（略）
+
+第十三章.软件项目管理（略）
+
+建议
+
+第一章.软件工程概述
+1.1软件
+    软件=程序+数据+文档
+    软件的特性：复杂的，成本高，风险大，维护困难，不可见的，不断变化，质量难以稳定
+    软件的质量特性：功能性，可靠性，易用性，效率，维护性，可移植性
+1.2软件危机
+软件危机的定义：
+        指在计算机软件的开发和维护过程中所遇到的一系列严重问题。
+
+软件危机的两个问题：
+如何开发软件以满足日益增长的软件需求
+如何维护数量不断增长的软件
+软件危机的典型表现:
+对开发成本估计不准确
+用户对已有系统的不满意
+软件产品质量不可靠
+软件没有合适的文档资料
+成本过
+软件危机产生的原因：
+软件日益复杂和庞大
+软件开发管理困难和复杂
+软件开发技术落后
+生产方式落后
+开发工具落后
+如见开发费用不断增加
+软件危机的解决方法：
+既要有技术措施（方法和工具），又要有必要的组织管理措施。
+
+1.3软件工程
+软件工程的定义：
+软件工程是一类工程，是将理论和知识应用于实践的学科，它借鉴了工程的原则和方法，以求高效的开发高质量的软件
+软件工程以关注（软件质量）为目标，包括 （方法，过程，工具，范式）四个要素。
+
+软件工程的本质特性：
+软件工程关注大型程序的构造
+软件工程的中心课题式控制复杂性
+软件经常变化
+开发软件的效率非常重要
+和谐的合作式开发软件的关键
+软件必须有效地支持用户
+在软件工程领域中通常由一种文化背景的人替具有另一种文化背景的人
+ 软件工程的7条基本原理：
+用分阶段的生命周期计划严格管理；
+坚持进行阶段评审；
+实行严格的产品控制；
+采用现代程序设计技术；
+结果应能清楚的审查；
+开发小组的人应该少而精；
+承认不断改进软件工程实践的必要性。
+软件工程方法学定义：
+把软件生命周期全过程中使用的一整套技术方法的集合成为方法学，包括三个要素：（方法，工具，过程）目前最广泛的是（传统方法学）和（面向对象方法学）
+
+1.4软件生命周期
+三大周期和八大过程：
+软件定义：问题定义，可行性研究，需求分析
+软件开发：总体设计，详细设计，编码和单元测试，总体测试
+运行维护（软件维护）：软件维护
+1.5软件过程
+软件过程模型定义：
+软件过程模型是软件发全部过程，活动和任务的结构框架。
+
+瀑布模型（优点、缺点、和适用范围）
+快速原型模型（优点、缺点、和适用范围）
+增量模型
+螺旋模型
+喷泉模型 （优点、缺点、和适用范围）
+可重用部件模型（构件继承模型）
+Rational统一过程    周期：初始，细化，构造，移交        阶段：需求，分析，设计，实现，测试
+敏捷过程与极限编程    极限编程：是一种典型的开发方法，广泛应用与需求模糊且经常改变的场所。
+微软过程
+第二章.可行性研究
+2.1可行性研究的任务
+(1)分析和澄清问题定义
+(2)从问题导出系统逻辑模型，探索解法
+
+可行性分类：
+    技术可行性：现有技术能解决问题吗
+    经济可行性：系统带来的效益能超过成本吗
+    操作可行性：系统操作方式对用户行得通吗
+    运行可行性，法律可行性
+可行性研究的目的：
+不是为了解决问题，而是确定问题是否值得去解决。用最小的代价在尽可能短的时间内，确定问题是否能够解决的。（实质上是进行一次大大压缩简化了的系统分析和设计的过程）
+
+2.2可行性研究过程：
+复查系统的规模和目标
+可研究目前正在使用的系统
+导出新系统的高层逻辑模型
+进一步定义问题
+导出和评价供选择的解法
+推荐行动方针
+草拟开发计划
+书写文档提交审查
+2.3系统流程图
+矩形：处理
+平行四边形：输出输入
+圆形：连接
+矩形下面加个三角形：换页连接
+箭头：数据流
+2.4数据流图（DFD）
+数据流图定义：
+           数据流图是一种图形化的技术，描绘信息和数据流从输入移动到输出的过程中所经受的变换，基本要点是做什么而不考虑怎么做。
+
+数据流图的特性：
+抽象性
+概括性
+数据流程图描述的主题是抽象出来的数据
+数据流程图具有层次性，一个系统具有许多层次的流程图。
+数据流图有4种成分：
+源点或者终点，处理，数据存储和数据流。
+
+数据流图的基本目的：
+利用它作为交流信息的工具，作为分析和设计的工具。
+
+表示方法：
+实线表示数据流
+
+虚线表示控制流
+
+圆框代表处理数据的过程，矩形框表示产生与接收数据的对象
+
+平行线表示数据存储区
+
+2.5数据字典(DD)
+数据字典的定义：
+数据字典是关于数据的信息的集合，也就是对数据流图中所包含的所有元素的定义的集合。
+
+定义组成包含：
+数据流、数据流分量（即数据元素）、数据存储、处理
+ 
+
+如何定义数据的方法？
+ 
+答：对数据自顶向下分解
+数据字典的用途：
+作为分析阶段的工具。
+数据字典中包含的每个数据元素的控制信息是很有价值的。
+数据字典是开发数据库的第一步，是很有价值的一步。
+2.6成本和效益分析
+成本估计技术：
+代码行技术 
+任务分解技术 
+自动估计成本技术
+成本效益分析方法：
+货币的时间价值 
+投资回收期 
+纯收入 
+投资回收率
+ 
+
+第三章.需求分析(软件需求规格说明书)
+
+3.1需求分析的任务
+确定对系统的综合需求：
+功能需求：系统必须提供的服务
+性能需求
+可靠性和可用性需求
+出错处理需求：系统对错误的响应
+接口需求：数据通信的格式
+约束：软件开发过程中应当遵守的限制条件
+逆向需求：软件不应该做什么
+将来可能提出的要求：为系统扩充做准备
+分析系统的数据要求：
+这是软件需求分析的一个重要任务，通常采用建立数据流图，数据字典和数据模型的方法。
+
+导出系统的逻辑模型
+修正系统开发计划
+分析与建模规格说明
+分析建模
+软件需求规格说明
+状态转换图
+验证软件需求
+3.2与用户沟通获取需求的方法：
+访谈 
+面向数据流自顶向下求精 
+简易的应用规格说明技术
+快速建立软件原则  
+3.3分析建模与规格书明书(略)
+3.4E-R图
+三种对应关系：
+一对一，一对多，多对多
+
+3.5数据规范化
+第一范式(1nf)
+第二范式(2nf)
+第三范式(3nf)
+3.6状态转换图 (略)
+3.7其他图形工具
+层次方框图
+Warnier图 
+IPO图
+3.8验证软件需求
+验证方法:
+一致性：需求一致，不会矛盾冲突
+完整性：需求必须完整
+现实性：现有技术可以实现
+有效性：需求必须正确有效
+第四章.形式化说明技术（略）
+第五章.总体设计
+5.1设计过程
+2个阶段：
+系统设计阶段(确定系统的具体实施方案)
+结构设计阶段(确定软件)
+细分9大步骤:
+设想供选择方案：想解决办法
+选取合理的方案：选择解决办法
+推荐最佳方案：选出一个最好的解决办法
+功能分解：对目标系统进行分解
+设计软件结构：分解成模块之后怎么组织它们
+设计数据库：大型项目不可能不用到数据库吧
+制定测试计划：开发完了得测试啊
+书写文档：好的软件有着好的文档
+审查和复审
+5.2设计原理
+模块化
+模块定义：是由边界元素限定的相邻程序元素的序列，而且有一个总体标识符代表它。
+
+模块化定义：就是把程序划分成独立命名且可独立访问的模块，每个模块完成一个子功能，把这些模块集成起来构成一个整体，可以完成指定的功能满足用户的需求。
+
+模块化公式:
+如果C(P1)>C(P2)，显然E(P1)>E(P2)
+   根据人类解决一般问题的经验，
+    C(P1+P2)>C(P1)+C(P2)
+   综上所述，得到下面的不等式
+    E(P1+P2)>E(P1)+E(P2)
+抽象定义
+     现实世界中一定事物、状态或过程之间总存在着某些相似的方面(共性)。把这些相似的方面集中和概括起来，暂时忽略它们之间的差异，这就是抽象。
+
+逐步求精(略)
+信息隐藏(略)
+局部化(略)
+模块独立
+独立的标准：内聚，耦合（高内聚，低耦合） 
+
+耦合：
+是对一个软件结构内各个模块之间相互依赖程度的度量；耦合的强弱取决于模块间接口的复杂程度、进入或访问一个模块的点以及通过接口的数据。
+
+耦合度由高到低：
+内容耦合,公共环境耦合,控制耦合,特征(印记)耦合,数据耦合
+
+内聚：
+标志一个模块内各个元素彼此结合的紧密程度；内聚从功能角度衡量模块内的联系，好的内聚模块应当恰好做一件事。
+
+聚程度由低到高:
+偶然性内聚,逻辑性内聚,时间性内聚,过程性内聚,通信性内聚,顺序内聚,功能内聚
+
+5.3启发规则
+改进软件结构提高模块儿独立性。
+模块规模应该适中 
+深度，宽度，扇入和扇出都应该适当 
 
 
-<!-- ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white) -->
-<!-- ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) -->
-<!-- ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) -->
-![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
-![Stylus](https://img.shields.io/badge/stylus-%23ff6347.svg?style=for-the-badge&logo=stylus&logoColor=white)
-<!-- ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) -->
-<!-- ![Qt](https://img.shields.io/badge/Qt-%23217346.svg?style=for-the-badge&logo=Qt&logoColor=white) -->
+模块儿的作用域应该在控制域内。 
+力争降低模块儿接口的复杂度 
+设计单入口和单出口的模块儿。 
+模块儿功能应该预测。
+5.4描绘软件结构的图形
+工具：层次图，HIPO图 结构图
 
-### IDEs / Editors
+5.5数据流
+交换流，事务流
 
-![CLion](https://img.shields.io/badge/CLion-black?style=for-the-badge&logo=clion&logoColor=white)
-<!-- ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white) -->
-![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white)
+ 
 
-### Version Control
+第六章.详细设计
 
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+详细设计的根本目的：
+确定应该怎样具体地实现所要求的系统。
 
-### Developer/Forums
+6.1结构程序设计
+三种基本控制结构：顺序 选择 循环
 
-![Codeforces](https://img.shields.io/badge/Codeforces-445f9d?style=for-the-badge&logo=Codeforces&logoColor=white)
-![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white)
-![LeetCode](https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=LeetCode&logoColor=#d16c06)
+6.2人机界面设计
+设计问题:
+系统响应时间
+用户帮助设施
+出错信息处理
+命令交互
+人机界面设计指南:
+一般交互指南
+信息显示指南
+数据输入指南
+6.3过程设计的工具：
+(1)程序流程图 
 
-### Hosting/SaaS
+(2)盒图（N-S图）
 
-![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
-![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
-<!-- ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=azure-devops&logoColor=white) -->
-<!-- ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) -->
+(3)PAD图 （问题分析图）
 
-### ML/DL
+(4)判定表 
 
-<!-- ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) -->
-<!-- ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) -->
-<!-- ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) -->
-<!-- ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) -->
-<!-- ![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white) -->
-<!-- ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) -->
+(5)判定树 
 
-### Browsers
+(6)过程设计语言（PDL  伪代码）
+6.4面向数据结构的设计方法
+Jackson图逻辑关系：
+顺序结构 选择结构 重复结构
 
-![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)
-![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white)
+Jackson设计步骤： 
+分析并确定输入数据和输出数据的逻辑结构，并用Jackson结构图来表示这些数据结构。 
+找出输入数据结构和输出数据结构中有对应关系的数据单元。 
+按一定的规则由输入、输出的数据结构导出程序结构。 
+列出基本操作与条件，并把它们分配到程序结构图的适当位置。 
+用伪码写出程序。
+6.5程序复杂度定量
+计算环形复杂度的方法：
+流图中的区域数等于环形复杂度。
+流图G的环形复杂度V(G)=E-N+2，其中，E是流图中边的条数，N是结点数。
+流图G的环形复杂度V(G)=P+1，其中，P是流图中判定结点的数目。
+6.6Halstead方法
+Halstead方法根据程序中运算符和操作数的总数来度量程序的复杂程度。
+令N1为程序中运算符出现的总次数，N2为操作数出现的总次数，程序长度N定义为：
+                N=N1+N2
+程序中使用的不同运算符(包括关键字)的个数n1，以及不同操作数(变量和常数)的个数n2。预测程序长度的公式如下：
+        H = n1log2n1 + n2log2n2
+   预测程序中包含错误的个数的公式如下：
+        E = N log2(n1+n2)/3000
+第七章.实现
 
-### Education
 
-![Khan Academy](https://img.shields.io/badge/KhanAcademy-%2314BF96.svg?style=for-the-badge&logo=KhanAcademy&logoColor=white)
-![Microsoft Learn](https://img.shields.io/badge/Microsoft_Learn-258ffa?style=for-the-badge&logo=microsoft&logoColor=white)
-![Duolingo](https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white)
+实现定义:
+编码和测试统称为实现。
 
-### Search Engines
+7.1编码（略）
+7.2软件测试
+软件测试的定义目标：
+测试是为了发现程序中的错误而执行程序的过程。
+好的测试方案是极有可能发现迄今为止尚未发现的错误的测试方案。
+成功的测试是发现了至今为止尚未发现的错误的测试。
+软件测试准则：
+所有的测试都应该追溯到客户需求。
+应该在测试之前就应该制定出测试计划。
+把Pareto原理应用到软件测试中。错误的80%是有程序中的20%的模块造成的。
+应该从“小规模”测试开始，并逐步进行“大规模”测试。
+请举测试是不可能的。
+为了达到最佳的测试效果，应该由独立的第三方从事测试工作。
+测试方法：
+静态测试：动态测试又分为黑盒测试和白盒测试。黑盒测试是功能测试，不考虑内部结构。白盒测试是结构测试，需要考虑内部的逻辑结构。 
+动态测试 
 
-![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
-## 🔭 I’m currently working on ...
+测试步骤：
+模块测试（单元测试）  
+子系统测试 
+系统测试
+验收测试 
+平行运行
+7.3单元测试：
+五个方面测试:
+接口模块 
+局部数据结构 
+重要的执行通路 
+出错处理通路
+边界条件
+7.4集成测试
+     集成测试是测试和组装软件的系统化技术。集成测试（也叫组装测试，联合测试）是单元测试的逻辑扩展。它最简单的形式是：把两个已经测试过的单元组合成一个组件，测试它们之间的接口。从这一层意义上讲，组件是指多个单元的集成聚合。集成测试有（非渐增式测试）和（渐增式测试）。普遍采用（渐增式测试）。
 
-  - DevOps
-  - CTF
-  - University Courses
+自顶向下集成：从主模块开始沿着程序控制层次向下移动逐渐把各个模块结合起来
+自底向上集成：从子模块开始组装和测试
 
-## 🌱 I’m currently learning ...
 
-  - :ru: / :serbia:　Русский/Српски
-  - [Python](https://github.com/topics/python)
-<!--   - [Big Data](https://github.com/topics/bigdata) -->
-  - [Machine Learning](https://github.com/topics/machinelearning)
-  - [Cryptography](https://github.com/topics/cryptography)
-  - Computer Network
-  - [Capture The Flag](https://github.com/topics/ctf)
-  - Everything I Love
 
-## 🤔 I’m looking for help with ...
 
-  - NLP
-  - Cybersecurity
-  - DevOps
+7.5确认测试
+确认测试也称为验收测试，它的目标是验证软件的有效性。
 
-## 📫 Get in touch:
+7.6白盒测试 
+白盒测试技术：逻辑覆盖和控制结构测试
+逻辑覆盖
+语句覆盖：所有的语句都要执行到位
+判定覆盖：所有的判定结构都要至少执行一次
+条件覆盖：判定表达式中的每个条件都要出现
+判定/条件覆盖
+条件组合覆盖
+点覆盖
+边覆盖
+路径覆盖
 
-<!--   [![BiliBili](https://img.shields.io/badge/-sfc9982-fe7398?style=flat-square&logo=bilibili&logoColor=fff)](https://space.bilibili.com/249193111)　 -->
-<!--   [![Twitter](https://img.shields.io/badge/-@CHN_JacksonChen-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white)](https://twitter.com/CHN_JacksonChen)　 -->
-  [![Blog](https://img.shields.io/badge/sfc9982-blog-0e83cd?style=flat-square&logo=Blogger&logoColor=fff)](https://googles.plus)　
-<!--   [![Telegram](https://img.shields.io/badge/-@sfc9982-3db6f1?style=flat-square&logo=Telegram&logoColor=2ca5e0)](https://t.me/@sfc9982)　 -->
-  [![PGP](https://img.shields.io/badge/PGP-DEC99CC0DE0778DD-orange?style=flat-square)]()
+10大测试:
+接口测试
+路径测试
+功能测试
+健壮性测试
+性能测试
+用户界面测试
+信息安全测试
+压力测试
+可靠性测试
+安装/反安装测试
 
-## More information
+控制结构测试：
+基本路径测试，条件测试，循环测试
 
-  - My Blog: [googles.plus](https://googles.plus)
+画出程序的流程图并画出相应的流图（只包含点和有向边的图）
+计算流图的环形复杂度（公式前面说了）
+确定线性独立路径的基本集合（就是写出所有可能执行路径的组合）
+设计测试用例（根据第三步的实际情况设计测试用例）
+7.7黑盒测试  等价划分 边界值测试 错误推断（略） 因果图法（略）
+等价划分定义：
+     是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。该方法是一种重要的,常用的黑盒测试用例设计方法。  
 
-## Thanks
+划分等价类：
+     等价类是指某个输入域的子集合。在该子集合中,各个输入数据对于揭露程序中的错误都是等效的，并合理地假定：测试某等价类的代表值就等于对这一类其它值的测试，因此,可以把全部输入数据合理划分为若干等价类,在每一个等价类中取一个数据作为测试的输入条件就可以用少量代表性的测试数据取得较好的测试结果。等价类划分可有两种不同的情况：有效等价类和无效等价类。
 
-<a href="https://www.jetbrains.com"><img src="https://account.jetbrains.com/static/images/jetbrains-logo-inv.svg" height="200" alt="JetBrains"/></a>
+划分等价类的标准：
+  完备测试、避免冗余;
+  划分等价类重要的是：集合的划分，划分为互不相交的一组子集，而子集的并是整个集合;
+  并是整个集合：完备性;
+  子集互不相交：保证一种形式的无冗余性;
+  同一类中标识（选择）一个测试用例，同一等价类中，往往处理相同，相同处理映射到"相同的执行路径"。
+划分等价类的方法
+  在输入条件规定了取值范围或值的个数的情况下,则可以确立一个有效等价类和两个无效等价类。如：输入值是学生成绩，范围是0～100；
+  在输入条件规定了输入值的集合或者规定了"必须如何"的条件的情况下,可确立一个有效等价类和一个无效等价类；
+  在输入条件是一个布尔量的情况下,可确定一个有效等价类和一个无效等价类。
+  在规定了输入数据的一组值（假定n个）,并且程序要对每一个输入值分别处理的情况下,可确立n个有效等价类和一个无效等价类。
+  在规定了输入数据必须遵守的规则的情况下,可确立一个有效等价类（符合规则）和若干个无效等价类（从不同角度违反规则）；
+  在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。
+7.8调试
+蛮干法：当所有其他办法都没用了采用这个
+回溯法：从发现问题的地方开始回溯代码执行流程解以解决问题
+原因排除法：对分查找，归纳法，演绎法
+7.9软件可靠性
+软件可靠性：程序在给定的时间间隔内按照规格说明书的规定成功地运行的概率
+软件的可用性：程序在给定的时间点，按照规格说明书的规定成功地运行的概率。
+7.10估算平均无故障时间的方法
+相关量的符号：
+     ET——测试之前程序中错误总数；  估计ET的两个方法：植入错误法、分别测试法
+
+     IT——程序长度(机器指令总数)；
+
+     τ——测试(包括调试)时间；
+
+     Ed(τ)——在0至τ期间发现的错误数；
+
+     Ec(τ)——在0至τ期间改正的错误数。
+
+ 
+
+第八章.维护
+8.1软件维护的定义   
+ 就是在软件已经交付使用之后，为了改正错误或满足新的需要而修改软件的过程。
+
+软件可靠性：
+ 程序在给定的时间间隔内按照规格说明书的规定成功地运行的概率
+
+4项维护：
+改正性维护
+适应性维护
+完善性维护
+预防性维护
+8.2软件维护的特点
+非结构化维护
+结构化维护
+维护的代价高昂
+维护的问题很多
+8.3软件的可维护性
+决定软件的可维护性的因素:
+可理解性
+可测试性
+可修改性
+可靠性
+可移植性
+可使用性（可重用性）
+效率
+
+
+
+第九章.面向对象方法引论
+
+9.1对象
+定义：
+     对象是具有相同状态的一组操作的集合，是对问题域中某个东西的抽象。
+
+特点：
+以数据为中心
+对象是主动
+实现了数据的封装
+本质上具有并行性
+模块独立性好
+9.2其他面向对象定义
+
+9.3面向对象的四个要点：
+面向对象的软件系统是由对象组成的，软件中的任何元素都是对象，复杂的软件对象由比较简单的对象组合而成。
+把所有对象都划分成各种对象类(简称为类,class)，每个对象类都定义了一组数据和一组方法。数据用于表示对象的静态属性，是对象的状态信息。
+按照子类(或称为派生类)与父类(或称为基类)的关系，把若干个对象类组成一个层次结构的系统(也称为类等级)。
+对象彼此之间仅能通过传递消息互相联系。
+面向对象方法学的优点：
+与人类习惯的思维方式一致
+稳定性好
+可重用性好
+较易开发大型软件产品
+可维护性好
+9.4UML中常见关系
+UML中类与类，已经类与接口，接口与接口的关系有：
+泛化（generalization）
+关联（association）
+依赖（dependency）
+实现（realization）
+关联关系弱到强:
+依赖 < 关联 < 聚合 < 组合
+
+ 
+
+第十章.面向对象分析
+
+10.1面向对象分析的基本过程
+3个子模型:
+对象模型（静态模型）
+动态模型（交互次序）
+功能（数据交换）
+5大层次:
+主题层
+类与对象层
+结构层
+属性层
+服务层
+面向对象分析大体上按照下列顺序进行：
+寻找类与对象，识别结构，识别主题，定义属性，建立动态模型，建立功能模型，定义服务
+
+面向对象分析的过程:
+需求->业务用例图->活动图->系统用例图->用例说明(规约)
+
+10.2需求陈述（略）
+10.3建立对象模型
+客观事物：
+可感知的物理实体
+人或组织角色
+应该记忆的事件
+两个或多个对象的相互作用
+需要说明的概念、
+建立对象模型：
+确定类与对象
+确定关联
+划分主题
+确定属性
+识别继承关系
+反复修改
+建立动态模型：
+编写脚本
+设想用户几面
+画事件跟踪图
+画状态图
+审查动态模型
+建立功能模型：
+画出基本系统模型图
+画出功能级模型数据流图
+描述处理框功能
+ 
+
+第十一章.面向对象设计（略）
+第十二章.面向对象实现（略）
+第十三章.软件项目管理（略）
+ 
+
+建议：
+本复习材料有很多知识点都未涉及到，看完后请做习题  链接：点击我开始做题  (注：习题非本人所著，因知识覆盖范围较广适合推荐，萌新请不要下载（毕竟没有收到好处?）土豪请随意)
+
+软件工程 (第4版)  学习辅导与习题解析 ,张海藩编著
+————————————————
+版权声明：本文为CSDN博主「Gfour703」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_42139734/article/details/91606559

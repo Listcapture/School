@@ -14,21 +14,19 @@ double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
 const int N=2e5+10;
-const int P=998244353;
 
 int n,m;
 
 void solve()
 {
     
-
     return ;
 }
 
 int main()
 {
     int tt;
-    cin>>tt;
+    tt=1;
     startTime = clock();
     while(tt--)
     {
