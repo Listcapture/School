@@ -5,7 +5,13 @@
         "iostream": "cpp",
         "utility": "cpp",
         "algorithm": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "xstddef": "cpp",
+        "ostream": "cpp",
+        "vector": "cpp",
+        "unordered_map": "cpp",
+        "queue": "cpp",
+        "map": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
