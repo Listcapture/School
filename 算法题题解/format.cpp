@@ -17,121 +17,73 @@ double getCurrentTime() {
 }
 
 // 判断连通块是否能阻止
+LL n,m;
 const int N=1010;
-LL n;
-LL a[N][N];
-LL f[N][N][2];
-LL cnt[N][N][2];
-vector<char >zpath;
-vector<char>path;
-LL get(LL x,LL s)
+int p[N],sz[N];
+vector<int >poi;
+// dfs 表示当前树为 cur 数位达到n的最小步数
+LL find(LL x)
 {
-  LL res=0;
-  if(x==0)return 0;
-  if(s==0)
-  {
-    while(x%2==0) x/=2,res++;
-  }else while(x%5==0) x/=5,res++;
-  return res;
+  if(p[x]!=x)return find(p[x]);
+  return x;
 }
-void finz(int zx,int zy)
-{
-  // 从1，1 出发经过zx,zy, zx,zy n,n
-  int cx=1,cy=1;
-  while(cx<zx) zpath.push_back('D'),cx++;
-  while(cy<zy) zpath.push_back('R'),cy++;
-  while(cx<n) zpath.push_back('D'),cx++;
-  while(cy<n) zpath.push_back('R'),cy++;
-}
-bool ok(int a,int b)
-{
-  return (a>=1&&a<=n&&b>=1&&b<=n);
-}
-void back(int s)
-{
-    int cx=n,cy=n;
-    while(1){
-     //cout<<cx<<" "<<cy<<endl;
-      int a=cx-1,b=cy;
-      int la=cx,lb=cy-1;
-      if(!ok(a,b)&&!ok(la,lb))
-      {
-        break;
-      }else if(!ok(a,b))
-      {
-        path.push_back('R');
-        cx=la,cy=lb;
-      }else if(!ok(la,lb))path.push_back('D'),cx=a,cy=b;
-      else 
-      {
-        if(f[a][b][s]<=f[la][lb][s])
-        {
-          path.push_back('D');
-          cx=a,cy=b;
-        }else 
-        {
-          path.push_back('R');
-          cx=la,cy=lb;
-        }
-
-
-      }
-    }
-
-}
-
-
-
+map<int ,int >mp;
 void solve()
 {
-  cin>>n;
-  LL ans=0;
-  bool zero=false;
-  int zx,zy;
-  rep(i,1,n) rep(j,1,n)
+  cin>>n>>m;
+  rep(i,1,n)p[i]=i,sz[i]=1;
+  while(m--)
   {
-    cin>>a[i][j];
-    if(!a[i][j])zero=true,zx=i,zy=j;
-    cnt[i][j][0]=get(a[i][j],0);
-    cnt[i][j][1]=get(a[i][j],1);
-    f[i][j][0]=f[i][j][1]=2e18;
+    int a,b;
+    cin>>a>>b;
+    if(!mp[a]) poi.push_back(a);
+    if(!mp[b]) poi.push_back(b);
+    int pa=find(a),pb=find(b);
+    if(pa!=pb)
+    {
+      p[pa]=pb;
+      sz[pb]+=sz[pa];
+    }else 
+    {
+        vector<int >fat;
+        for(int i=0;i<(int)poi.size();i++)
+        {
+          fat.push_back(find(poi[i]));
+        }
+        if(fat.size()>=2)
+        {
+           int id1=0,id2=0;
+           int ms1=0,ms2=0;
+          for(int i=0;i<fat.size();i++)
+          {
+            int inv=fat[i];
+            if(sz[inv]>ms1)
+            {
+              ms2=ms1;
+              ms1=sz[inv];
+              id2=id1;
+              id1=inv;
+            }else if(sz[inv]>=ms1&&id1!=inv)
+            {
+                ms2=sz[inv];
+                id2=inv;
+            }
+          }
+           p[id2]=id1;
+           sz[id1]+=sz[id2];
+        }
+    }
+    
+       int ans=0;
+       for(int i=0;i<(int)poi.size();i++)
+       {
+          int t=find(poi[i]);
+          ans=max(ans,sz[t]);
+       }
+       cout<<ans<<endl;
   }
   
-  // dp
-  for(int i=1;i<=n;i++)
-  {
-    f[i][0][0]=f[i][0][1]=0x3f3f3f3f;
-    f[0][i][0]=f[0][i][1]=0x3f3f3f3f;
-  }
-  f[0][1][0]=f[0][1][1]=0;
-  f[1][0][0]=f[1][0][1]=0;
-  rep(i,1,n)
-  rep(j,1,n)
-  {
-    f[i][j][0]=min(f[i-1][j][0],f[i][j-1][0])+cnt[i][j][0];
-    f[i][j][1]=min(f[i-1][j][1],f[i][j-1][1])+cnt[i][j][1];
-  }
-  ans=min(f[n][n][0],f[n][n][1]);
-  int s;
-  if(f[n][n][0]<=f[n][n][1]) s=0;
-  else s=1;
-  if(ans>1&&zero){
-    finz(zx,zy);
-    cout<<1<<endl;
-    for(int i=0;i<zpath.size();i++)
-    {
-      cout<<zpath[i];
-    }
-   
-  }else 
-  {
-    cout<<ans<<endl;
-    back(s);
-    reverse(path.begin(),path.end());
-    for(int i=0;i<path.size();i++) cout<<path[i];
-    
-  }
-   
+  
 
 }
  
