@@ -16,12 +16,11 @@ double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
 
-// 判断连通块是否能阻止
+
 LL n,m;
 const int N=1010;
 int p[N],sz[N];
 vector<int >poi;
-// dfs 表示当前树为 cur 数位达到n的最小步数
 LL find(LL x)
 {
   if(p[x]!=x)return find(p[x]);

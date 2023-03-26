@@ -5,49 +5,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+     h2
+     {
+        background-color: rgba(12, 128, 212, 0.617);
+        width: 2000px;
+        height:40px;
+     }
+     div
+     {
+        background-color: rgb(240, 176, 176);
+        height:200px;
+        width:300px;
+        margin-top: 10px;
+        display: inline-block;
+     }
+     .Comments
+     {
+        height:20px;
+        background-color: rgb(112, 124, 134);
+     }
+     textarea
+     {
+     background-color: aliceblue;;
+     }
+     img{
+        width: 20px;
+     }
+
+    </style>
 </head>
  
 <body>
-    <h2>Form</h2>
+    <h2>交易界面</h2>
+    <div>
+     商品1
+     <br><br><br><br><br><br><br><br>
+      <a href="javascript:history.back(-1);">加入购物车</a>
+    </div>
+   
+    <div>
+    商品2
+    <br><br><br><br><br><br><br><br>
+      <a href="javascript:history.back(-1);">加入购物车</a>
+    </div>
+    <div>商品3
+        <br><br><br><br><br><br><br><br>
+      <a href="javascript:history.back(-1);">加入购物车</a>
+    </div>
+    <div>商品4
+        <br><br><br><br><br><br><br><br>
+      <a href="javascript:history.back(-1);">加入购物车</a>
+    </div>
+    <div>商品5
+        <br><br><br><br><br><br><br><br>
+      <a href="javascript:history.back(-1);">加入购物车</a>
+    </div>
+    <div>商品6
+        <br><br><br><br><br><br><br><br>
+      <a href="javascript:history.back(-1);">加入购物车</a>
+    </div>
+    <br>
+     <a href="javascript:history.back(-1);">我要发布商品</a>
+   
+     <form action="">
+        <!-- 用户名 -->
+        <input placeholder="商品简述" type="text" name="username2" id="litian">
+        <!-- 姓名 -->
+        <br>
+        <input placeholder="" type="number" name="username2" id="20020309..">
+        <br>
+        <!-- placeholder -->
+        <input placeholder="邮箱(合法的邮箱)" type="email" name="username2" id="20020309..">
+        <br>
+        <!-- password 隐藏 -->
+        
+        <label for="password"></label>
+        <input placeholder="密码(6-18位数字+字符)" type="password",name="password",id="password">
+        <br>
+    
+        <input placeholder="绑定手机号(中国大陆+86)" type="text",name="PhoneNumber",id="phonenumber">
+        <br>
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <form action="">
     <!-- 用户名 -->
-    <label for="username">用户名</label>
-    <input type="text" name="username2" id="litian">
+    <input placeholder="姓名(姓氏+名)" type="text" name="username2" id="litian">
     <!-- 姓名 -->
     <br>
-    <label for="age">年龄&nbsp;&nbsp;&nbsp;</label>
-    <input type="number" name="username2" id="20020309..">
+    <input placeholder="年龄(0-130之间的整数)" type="number" name="username2" id="20020309..">
     <br>
     <!-- placeholder -->
-    <label for="email">邮箱&nbsp;&nbsp;&nbsp</label>
-    <input type="email" name="username2" id="20020309..">
-    
+    <input placeholder="邮箱(合法的邮箱)" type="email" name="username2" id="20020309..">
+    <br>
     <!-- password 隐藏 -->
-    <div>
+    
     <label for="password"></label>
-    <input placeholder="密码" type="password",name="password",id="password">
-    <!-- 
-        {
-            input 类型 text文本 / password密码 /  submit
-            /radio 单选项 /多选项checkbox /button
-            /color 多颜色字段。。。
-        } -->
-    </div>
+    <input placeholder="密码(6-18位数字+字符)" type="password",name="password",id="password">
+    <br>
+
+    <input placeholder="绑定手机号(中国大陆+86)" type="text",name="PhoneNumber",id="phonenumber">
+    <br>
+
      <button type="text">提交</button>
      <br>
      <br>
      <input type="radio" name="lang" value="cpp" id="lang">
-     <label for="cpp">C++</label>
+     <label for="cpp">捐款</label>
      <br>
   
     <input type="radio" name="lang" value="java" id="lang">
-    <label for="java">Java</label>
+    <label for="java">捐赠图书</label>
     <br>
 
     <input type="radio" name="lang" value="java" id="lang">
-    <label for="python">Python</label>
+    <label for="python">捐赠衣物</label>
     <br>
 
+    <input type="radio" name="lang" value="java" id="lang">
+    <label for="python">其他</label>
+    <br>
+     <button>联系我们</button>
     </form>
     <form action="/about.html">
 
@@ -57,19 +144,21 @@
     <select name="lang" id="lang">
      <!-- 第一个选项是请选择 -->
     <option value="">请选择</option>
-    <option value="Cpp">C++</option>
-    <option value="JAVA">Java</option>
-    <option value="Python">Python</option>
+    <option value="">C++</option>
+    <option value="旧图书">Java</option>
+    <option value="旧衣物">Python</option>
     </select>
-
-
-
+    <li>用户信息界面</li>
+    <li>交易界面</li>
+    <li>公益界面</li>
+    <li>论坛界面</li>
+    <li>积分界面</li>
     </form>
     <!-- test area -->
     
     <br>
     <textarea placeholder="填写你的代码" name="code" id="code" cols="30" rows="10"></textarea>
     <br>
-   <button type="submit">提交</button>
+   <button type="submit">我要捐赠</button>
 </body>
 </html>

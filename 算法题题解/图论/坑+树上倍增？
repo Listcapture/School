@@ -1,0 +1,46 @@
+
+//树上倍增求LCA
+void dfs(int u,int father)
+{
+   for(int i=h[u];~i;i=ne[i])
+   {
+     int j=e[i];
+     if(j==father)continue;
+     dep[j]=dep[u]+1;
+     dist[j]=dist[u]+w[i];
+     fa[j][0]=u;
+     // 先求出来 fa[j][k-1]父亲,而不是先求出来儿子
+     for(int k=1;k<16;k++)
+     {
+      fa[j][k]=fa[fa[j][k-1]][k-1];
+     }
+     
+     dfs(j,u);
+   }
+  
+}
+int lca(int u,int v)
+{
+   if(dep[u]<dep[v]) swap(u,v);
+   //u的深度要比v大，先跳u
+   if(u==v) return u;
+   for(int i=15;i>=0;i--)
+   {
+     if(dep[fa[u][i]]>=dep[v])
+     {
+       u=fa[u][i];
+     }
+   }
+   if(u==v) return u;
+   for(int i=15;i>=0;i--)
+   {
+     if(fa[u][i]!=fa[v][i])
+     {
+       u=fa[u][i];
+       v=fa[v][i];
+     }
+   }
+   return fa[u][0];
+
+
+}

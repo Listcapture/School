@@ -1,6 +1,8 @@
-    //   cout<<i<<endl;
-    //   for(int j=0;j<i;j++)
-    //   {
-    //     cout<<ok[j]<<" ";
-    //   }
-    //   cout<<endl;
+  Bitree bt;
+  memset(h,-1,sizeof h);
+  rep(i,1,n)
+  {
+    int x;
+    cin>>x;
+    //insert(bt,x);
+  }
