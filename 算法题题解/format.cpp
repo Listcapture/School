@@ -1,99 +1,39 @@
-
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long LL;
-#define PLL pair<LL,LL>
-#define PII pair<int,int>
-#define rep(i,a,b) for(int i=a;i<=b;i++)
-#define dep(i,a,b) for(int i=a;i>=b;i--)
-#define lowbit(x) (x&-x)
-#define x first
-#define y second
-const double eps=1e-8;
-clock_t startTime;
 
-double getCurrentTime() {
-    return (double)(clock() - startTime) / CLOCKS_PER_SEC;
-}
+const int N=1e6+10;
+int a[N],temp[N];
+int n;
 
-
-LL n,m;
-const int N=1010;
-int p[N],sz[N];
-vector<int >poi;
-LL find(LL x)
+void merge_sort(int a[] ,int l,int r )
 {
-  if(p[x]!=x)return find(p[x]);
-  return x;
-}
-map<int ,int >mp;
-void solve()
-{
-  cin>>n>>m;
-  rep(i,1,n)p[i]=i,sz[i]=1;
-  while(m--)
-  {
-    int a,b;
-    cin>>a>>b;
-    if(!mp[a]) poi.push_back(a);
-    if(!mp[b]) poi.push_back(b);
-    int pa=find(a),pb=find(b);
-    if(pa!=pb)
-    {
-      p[pa]=pb;
-      sz[pb]+=sz[pa];
-    }else 
-    {
-        vector<int >fat;
-        for(int i=0;i<(int)poi.size();i++)
-        {
-          fat.push_back(find(poi[i]));
-        }
-        if(fat.size()>=2)
-        {
-           int id1=0,id2=0;
-           int ms1=0,ms2=0;
-          for(int i=0;i<fat.size();i++)
-          {
-            int inv=fat[i];
-            if(sz[inv]>ms1)
-            {
-              ms2=ms1;
-              ms1=sz[inv];
-              id2=id1;
-              id1=inv;
-            }else if(sz[inv]>=ms1&&id1!=inv)
-            {
-                ms2=sz[inv];
-                id2=inv;
-            }
-          }
-           p[id2]=id1;
-           sz[id1]+=sz[id2];
-        }
-    }
-    
-       int ans=0;
-       for(int i=0;i<(int)poi.size();i++)
+      if(l>=r)  return ;
+      int mid=(l+r)>>1;
+      // 根据mid将数组划分为两部分递归处理
+      merge_sort(a,mid+1,r),   merge_sort(a,l,mid);
+      int i=l,j=mid+1,k=0;
+       while(i<=mid&&j<=r)
        {
-          int t=find(poi[i]);
-          ans=max(ans,sz[t]);
+          
+        if(a[i]<=a[j])  temp[k++]=a[i++];
+        else  temp[k++]=a[j++];
        }
-       cout<<ans<<endl;
-  }
-  
-  
-
+       while(i<=mid) temp[k++]=a[i++];
+       while(j<=r)  temp[k++]=a[j++];
+       for(int i=l,j=0;i<=r;i++,j++)  a[i]=temp[j];
 }
- 
+
 int main()
 {
-    int tt;
-    tt=1;
-    startTime = clock();
-    while(tt--)
-    {
-        solve();
-        //printf("%.2lf",getCurrentTime());
-    }
+  cin>>n;
+  puts("Input:");
+  for(int i=0;i<n;i++)  cin>>a[i];
+  merge_sort(a,0,n-1);
+  puts("Sorted_Array:");
+  for(int i=0;i<n;i++)  
+  cout<<a[i]<<' ';
+  
+    
+    
+    return 0;
 }
