@@ -17,42 +17,41 @@ double getCurrentTime()
 {
   return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
-
-const int N = 2020;
-int p[N], w[N];
-int f[N][N];
+const int N=2e5+10;
+struct seg{
+    int l,r;
+}segs[N];
+bool cmp(seg a,seg b)
+{
+   if(a.l!=b.l) return a.l<b.l;
+   return a.r<b.r;
+   
+}
 void solve()
 {
-  int n, m;
-  cin >> m >> n;
-  rep(i, 1, n) cin >> p[i] >> w[i];
-  rep(i, 1, n)
-  {
-    rep(j, p[i], m)
-    {
-      f[i][j] = max(f[i][j], f[i - 1][j - p[i]] + p[i] * w[i]);
+    int n;
+    cin>>n;
+    rep(i,1,n) {
+        int l,r;
+        cin>>l>>r;
+        if(l>r) swap(l,r);
+        segs[i].l=l;
+        segs[i].r=r;
     }
-  }
-  cout << f[n][m] << endl;
-  vector<int> ans;
-  int i = n, j = m;
-  while (i > 1 && j >= 0)
-  {
-    if (f[i][j] - p[i] * w[i] == f[i - 1][j - p[i]])
+    sort(segs+1,segs+1+n,cmp);
+    int tl=segs[1].l,tr=segs[1].r;
+    int ans=0;
+    rep(i,2,n)
     {
-      ans.push_back(i);
-      j -= p[i];
-      i--;
+       if(segs[i].l<=tr) ans++;
+       tr=max(tr,segs[i].r);
     }
-    else
-      i--;
-  }
-  cout << "ans.size()==" << ans.size() << endl;
-  cout << "商品信息：" << endl;
-  for (int i = ans.size() - 1; i >= 0; i--)
-  {
-    cout << ans[i] << " " << p[ans[i]] << " " << w[ans[i]] << endl;
-  }
+    cout<<ans<<endl;
+// 10
+// 56 12 1 99 1000 234 33 55 99 812
+
+
+  
 }
 int main()
 {

@@ -8,14 +8,11 @@ int n,m;
 int get(int x,int y)
 {
   return x*n+y;
-  
-    
 }
 int find(int x)
 {
       if(p[x]!=x) p[x]=find(p[x]);
       return p[x];
-      
 }
 
 

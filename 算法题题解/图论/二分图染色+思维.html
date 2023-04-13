@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>二分图染色+思维.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h6 id="%E9%93%BE%E6%8E%A5httpsvjudgenetproblemhdu-5971">链接：https://vjudge.net/problem/HDU-5971</h6>
+<h6 id="%E6%9D%A5%E6%BA%90virtue-judge-icpc-2016-%E5%A4%A7%E8%BF%9E">来源：Virtue Judge +ICPC-2016-大连</h6>
+<h4 id="%E9%A2%98%E7%9B%AE">题目：</h4>
+<p>一些摔跤运动员可以分为两大类$Good$ 或者 $Bad$.假设有$n$名运动员编号为</p>
+<p>$1-n$，$m$ 场竞赛，每场竞赛有且仅有两位运动员参与,经过对决，每场竞赛可以确定其中之一为</p>
+<p>$Good$类,另一个为$Bad$类,小明只知道这$m$场竞赛的参赛双方,和$x$名$Good$选手的编</p>
+<p>号,$y$名$Bad$选手的编号,问小明是否可以根据已知信息判断出所有运动员的类别？</p>
+<h4 id="%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F">输入输出格式</h4>
+<p>输入数据有多组每组,包含四个整数: $n,m,x,y$;</p>
+<p>$1\le n\le 1e4 \ \ \ \ \ 1\le m\le 1e4$</p>
+<p>接下来m 行每行连个整数$a_i,b_i$表示$a_i,b_i$之间有一条边</p>
+<p>$a_i\neq b_i$</p>
+<p>接下来$x$行每行一个数$x_i$表示$x_i$为$Good$类</p>
+<p>接下来$y$行每行一个整数$y_i$表示$y_i$为$Bad$类</p>
+<p>输出：如果可以确定出所有运动员类别，输出$YES$否则输出$NO$</p>
+<h4 id="%E6%80%9D%E8%B7%AF">思路：</h4>
+<p>考虑用二分图染色法求解：</p>
+<p>首先思考满足$YES$所需要的条件：</p>
+<p>所有点都能被染色，且染色过程中没有冲突出现。</p>
+<p>然后考虑如何染色，首先先把已知的$Good$ ，$Bad$类进行</p>
+<p>染色，然后遍历没有染色的点逐个染色即可。</p>
+<h4 id="%E4%BB%A3%E7%A0%81">代码：</h4>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define LL long long 
+#define PLL pair&lt;LL,LL&gt;
+#define PII pair&lt;int,int &gt;
+#define fir first
+#define sec second
+#define rep(i,a,b) for(int i=a;i&lt;=b;i++)
+#define dep(i,a,b) for(int i=a;i&gt;=b;i--)
+#define lowbit(x) (x&amp;-x)
+const double eps=1e-8;
+clock_t startTime;
+double getCurrentTime() {
+    return (double)(clock() - startTime) / CLOCKS_PER_SEC;
+}
+const int N=2e5+10;
+LL x,y,n,m;
+int e[N],ne[N],h[N],idx;
+int col[N];
+int st[N];
+void add(int a,int b)
+{
+    e[idx]=b,ne[idx]=h[a],h[a]=idx++;
+}
+bool  dfs(int u,int color)
+{
+if(!col[u]) col[u]=color;
+for(int i=h[u];~i;i=ne[i])
+{
+    int j=e[i];
+    if(!col[j])
+    {
+        if(!dfs(j,3^col[u])) return false;
+    }else if(col[j]==col[u]) return false;
+}
+return true;
+}
+
+
+void solve()
+{
+    while(cin&gt;&gt;x&gt;&gt;y&gt;&gt;n&gt;&gt;m)
+{
+
+    rep(i,1,x) h[i]=-1,st[i]=0,col[i]=0; idx=0;
+    while(y--)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        add(a,b),add(b,a);
+    }
+    int t;
+    bool can=true;
+    rep(i,1,n) 
+    {
+        cin&gt;&gt;t;
+        col[t]=1;
+        if(!dfs(t,1)) can=false;
+    }
+    rep(i,1,m)
+    {
+        cin&gt;&gt;t;
+        col[t]=2;
+        if(!dfs(t,2)) can=false;
+    }
+    rep(i,1,x) 
+    {
+        if(h[i]==-1)continue;
+        if(!col[i])
+        {
+            if(!dfs(i,1)) 
+            {
+                can=false;
+                break;
+            }
+        }
+    }
+    rep(i,1,x) if(!col[i])can=false;
+    cout&lt;&lt;((can)?&quot;YES&quot;:&quot;NO&quot;)&lt;&lt;endl;
+}
+}
+
+int main()
+{
+    int tt;
+    tt=1;
+    startTime = clock();
+    while(tt--)
+    {
+        solve();
+        //printf(&quot;%.2lf&quot;,getCurrentTime());
+    }
+    return 0;
+}
+</code></pre>
+
+</body>
+</html>
