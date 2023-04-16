@@ -1,0 +1,39 @@
+void ChessBoard(int tr,int tc,int dr,int dc,int size)
+{
+    if(size==1) return ;
+    size/=2;
+    timestamp++;
+    if(dr<=tr+size-1&&dc<=tc+size-1)
+    {
+      ChessBoard(tr,tc,dr,dc,size);
+    }else 
+    {
+      a[tr+size-1][tc+size-1]=timestamp;
+      ChessBoard(tr,tc,tr+size-1,tc+size-1,size);
+    }
+    if(dr>tr+size-1&&dc>tc+size-1)
+    { 
+      ChessBoard(tr+size,tc+size,dr,dc,size);
+    }else 
+    {
+      a[tr+size][tc+size]=timestamp;
+      ChessBoard(tr+size,tc+size,tr+size,tc+size,size);
+
+    }
+    if(dr<=tr+size-1&&dc>tc+size-1)
+    {
+      ChessBoard(tr,tc+size,dr,dc,size);
+    }else 
+    {
+      a[tr][tc+size]=timestamp;
+      ChessBoard(tr,tc+size,tr,tc+size,size);
+    }
+    if(dr>tr+size-1&&dc<=tc+size-1)
+    {
+      ChessBoard(tr+size,tc,dr,dc,size);
+    }else
+    {
+      a[tr+size][tc]=timestamp;
+      ChessBoard(tr+size,tc,tr+size,tc,size);
+    }
+}

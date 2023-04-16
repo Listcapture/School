@@ -1,0 +1,35 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true,
+                "abortTransactionOnError": true
+            },
+            "previewLimit": 50,
+            "server": "222.27.161.245",
+            "port": 1521,
+            "driver": "MSSQL",
+            "name": "lt",
+            "database": "orcl",
+            "username": "z2021213193",
+            "password": "z123456"
+        },
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1433,
+            "askForPassword": true,
+            "driver": "MSSQL",
+            "database": "lt",
+            "username": "2021213193",
+            "name": "lt"
+        }
+    ]
+}
