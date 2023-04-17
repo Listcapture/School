@@ -1,87 +1,55 @@
-1一个被用来在一定广度和深度范围内表现最终物件的中间物件，它内化了一个更迟系统的本质特征，指的是（ ）
-A、原型
-B、涉众
-C、其它系统
-D、相关产品
-正确答案： A 
-2
-原型方法最大的风险是（ ）
-A、成本失控
-B、易给客户造成错误印象
-C、容易忽略功能特性
-D、容易掩盖一些用户假设
-正确答案： A 
-二.多选题（共8题,80.0分）
-1
-面谈问题的基本类型包括（ ）
-A、开放式问题
-B、封闭式问题
-C、文档相关问题
-D、代码相关问题
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long LL;
+const int N=2e5+10;
+#define rep(i,a,b) for(int i=a;i<=b;i++)
+#define dep(i,a,b) for(int i=a;i>=b;i--)
+#define lowbit(x) (x&-x)
+const double eps=1e-8;
+clock_t startTime;
+double getCurrentTime() {
+    return (double)(clock() - startTime) / CLOCKS_PER_SEC;
+}
+int v[N],w[N];
+int f[N];
+void solve()
+{
+int n,m;
+cin>>m>>n;
+for(int i=1;i<=n;i++)
+{
+    cin>>w[i]>>v[i];
+}
+memset(f,0x3f,sizeof (f));
+f[m]=0;// f[j]表示使当前人数变为j的最小花费
+for(int j=m;j>=1;j--)
+{
+    for(int i=1;i<=n;i++)
+    {
+        if(v[i]<=j)  f[j-j%v[i]]=min(f[j-j%v[i]],f[j]+w[i]);
+    }
+}
+    for(int i=1;i<=m;i++)
+    {
+        if(f[i]!=f[0])
+        {
+            cout<<f[i]<<endl;
+            return ;
+        }
+    }
 
-正确答案： AB 
-2
-面谈的三种基础结构包括（ ）
-A、金字塔
-B、漏斗形
-C、菱形
-D、矩形
-正确答案： ABC 
-3
-面谈记录的内容包括（ ）
-A、事实和问题
-B、被会见人的观点
-C、被会见者的感受
-D、组织和个人目标
-正确答案： ABCD 
-4
-面谈记录的方式包括（ ）
-A、笔录
-B、录音和摄像
-C、测试文档
-D、分析模型
-正确答案： AB 我的答案：ABD得分： 0.0分
-5
-面谈的类型包括（ ）
-A、
-结构化面谈
-B、
-半结构化面谈
-C、
-非结构化面谈
-D、
-思维化面谈
-正确答案： ABC 我的答案：ABCD得分： 0.0分
-6
-原型的表现形式包括（ ）
-A、
-书面描绘
-B、
-场景叙述
-C、
-情节串联图板
-D、
-程序代码
-正确答案： ABCD 我的答案：ABCD得分： 10.0分
-7
-原型按照开发方法分类，包括（ ）
-A、
-探索式
-B、
-实验式
-C、
-演化式
-D、
-响应式
-正确答案： ABC 我的答案：ABCD得分： 0.0分
-8
-原型方法过程包括（ ）
-A、
-确定原型需求
-B、
-原型开发
-C、
-原型评估
-D、
-原型修正
-正确答案： ABCD 我的答案：ABCD
+}
+
+int main()
+{
+    int tt;
+    tt=1;
+    startTime = clock();
+    while(tt--)
+    {
+        solve();
+        
+
+        //printf("%.2lf",getCurrentTime());
+    }
+}
