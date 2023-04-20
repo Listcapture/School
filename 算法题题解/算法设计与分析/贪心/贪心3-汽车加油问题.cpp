@@ -33,3 +33,5 @@ int main()
     printf("%d\n",count);
     return 0;
 }
+//  7 7
+// 1 2 3 4 5 1 6 6

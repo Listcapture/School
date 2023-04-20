@@ -18,38 +18,24 @@ double getCurrentTime()
   return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
 const int N=2e5+10;
-struct seg{
-    int l,r;
-}segs[N];
-bool cmp(seg a,seg b)
+int a[N],pre[N];
+bool cmp(int a,int b)
 {
-   if(a.l!=b.l) return a.l<b.l;
-   return a.r<b.r;
-   
+  return a<b;
 }
 void solve()
 {
-    int n;
-    cin>>n;
-    rep(i,1,n) {
-        int l,r;
-        cin>>l>>r;
-        if(l>r) swap(l,r);
-        segs[i].l=l;
-        segs[i].r=r;
-    }
-    sort(segs+1,segs+1+n,cmp);
-    int tl=segs[1].l,tr=segs[1].r;
-    int ans=0;
-    rep(i,2,n)
-    {
-       if(segs[i].l<=tr) ans++;
-       tr=max(tr,segs[i].r);
-    }
-    cout<<ans<<endl;
-// 10
-// 56 12 1 99 1000 234 33 55 99 812
+   int n;
+   cin>>n;
 
+   rep(i,1,n)cin>>a[i];
+   sort(a+1,a+1+n,cmp);
+   LL ans=0;
+   rep(i,1,n)
+   {
+     ans+=(n-i+1)*a[i];
+   }
+   cout<<(double)ans/n<<endl;
 
   
 }
@@ -65,10 +51,3 @@ int main()
   }
 }
 
-// 2000 6
-// 200 2
-// 300 2
-// 600 1
-// 400 3
-// 1000 4
-// 800 5
