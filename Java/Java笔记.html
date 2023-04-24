@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Java笔记.markdown</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%BC%82%E5%B8%B8%E5%92%8C%E7%BA%BF%E7%A8%8B">第七章 异常和线程</h1>
+<p><img class="emoji" alt="tada" src="data:image/png;base64,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" /> <a href="https://www.bilibili.com/video/BV1sZ4y1p72b/?spm_id_from=333.337.search-card.all.click&amp;vd_source=369b53789af6155660c2a8e44072dfba">Java异常和并发</a><img class="emoji" alt="heart_eyes" src="data:image/png;base64,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" /></p>
+<p><code>There is the hentai</code></p>
+<h2 id="1%E5%BC%82%E5%B8%B8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E7%B1%BB%E5%9E%8B"><code>1.异常的概念和类型</code></h2>
+<p>[TOC]</p>
+<h3 id="11-%E5%BC%82%E5%B8%B8%E6%A6%82%E5%BF%B5"><code>1.1</code> <code>异常概念</code></h3>
+<p>异常，就是不正常的意思，程序中异常是指：</p>
+<ul>
+<li>异常：在程序执行的过程中，出现的非正常的情况，最终会导致JVM的非正常停止</li>
+</ul>
+<blockquote>
+<p>在Java 等面向对象的变成语言中，异常本身是一个类，产生异常就是创建异常对象并抛出了一个异常对象。</p>
+</blockquote>
+<ul>
+<li><strong>在Java中处理异常的方式是中断处理</strong></li>
+</ul>
+<blockquote>
+<p>异常值得并不是语法错误。当语法错误时，编译不通过，不会产生字节码文件，程序根本不能运行</p>
+</blockquote>
+<h3 id="12-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB"><code>1.2 异常体系</code></h3>
+<p>异常机制其实在帮助我们找到程序中的问题，异常的跟类是<code>Java.lang.Throwable</code></p>
+<p>其下有两个子类：<code>Java.lang.Error</code>,<code>Java.lang.Exception</code>,</p>
+<blockquote>
+<p>平常所说的异常是指<code>Java.lang.Exception</code>。</p>
+</blockquote>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+A[异常]==>B(Error:不能处理,只能尽量避免)
+A[异常]==>C(Exception:由于使用不当导致,可以避免) 
+</div></code></pre>
+<h4 id="throwable%E4%BD%93%E7%B3%BB"><code>throwable体系</code></h4>
+<ul>
+<li>Error 指的是错误，用于知识合理的程序不应该试图捕获的<strong>严重问题</strong>，只能事先解决。</li>
+<li>Exception 表示异常，异常产生后程序员可以通过代码方式纠正，是程序继续运行，是必须要处理的。</li>
+</ul>
+<h4 id="throwable%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><code>throwable中的常用方法</code></h4>
+<ul>
+<li><code>public void printStackTrace（）</code>：打印异常的详细信息。</li>
+</ul>
+<p>​	<u>包含了异常的类型，异常的原因，还包括异常出现的位置，在开发和调试阶段，都要使用.</u></p>
+<ul>
+<li><code>public String getMessage()</code>:获取发生异常的原因。</li>
+</ul>
+<h3 id="13-%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB"><code>1.3 异常分类</code></h3>
+<p>所有错误和异常的超类：<code>Throwable</code></p>
+<p>主要考虑的异常<code>Exception</code>，如果出现异常程序内继续运行</p>
+<ul>
+<li><code>Exception</code></li>
+</ul>
+<pre class="hljs"><code><div> <span class="hljs-comment">//编译异常</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>  </span>{
+ 	   SimpleDateFormat sdf= <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyy-MM-dd"</span>);
+       Date date=sdf.parse(<span class="hljs-string">"1909-09-09"</span>);
+       System.out.println(sdf);
+   }
+</div></code></pre>
+<pre class="hljs"><code><div> <span class="hljs-comment">//解决方法一：</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ParseException
+    </span>{
+        SimpleDateFormat sdf= <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyy-MM-dd"</span>);
+        Date date=sdf.parse(<span class="hljs-string">"1909-09-09"</span>);
+        System.out.println(date);
+        <span class="hljs-comment">// Thu Sep 09 00:00:00 CST 1909</span>
+    }
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">//解决方法二：</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SimpleDateFormat sdf= <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyy-MM-dd"</span>);
+        Date date=<span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">try</span>
+        {
+            date=sdf.parse(<span class="hljs-string">"1909-09-09"</span>);
+        }<span class="hljs-keyword">catch</span> (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println(date);
+        <span class="hljs-comment">// Thu Sep 09 00:00:00 CST 1909</span>
+    }
+</div></code></pre>
+<p>//在异常代码加上 <code>sout(&quot;Hello world&quot;);</code> 程序可以继续运行</p>
+<pre class="hljs"><code><div>java.text.ParseException: Unparseable date: <span class="hljs-string">"1909-0909"</span>
+	at java.text.DateFormat.parse(DateFormat.java:<span class="hljs-number">357</span>)
+	at Exception.example01.main(example01.java:<span class="hljs-number">42</span>)
+hello world
+
+</div></code></pre>
+<ul>
+<li><code>Error</code></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    <span class="hljs-keyword">int</span> []arr={<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
+    <span class="hljs-keyword">try</span> <span class="hljs-comment">//可能会出现异常的代码</span>
+    {
+        System.out.println(arr[<span class="hljs-number">3</span>]);
+    }<span class="hljs-keyword">catch</span> (Exception e) <span class="hljs-comment">//异常的处理逻辑</span>
+    {
+        System.out.println(e);
+    }<span class="hljs-comment">//Exception</span>
+    <span class="hljs-keyword">int</span> a[]=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span> [<span class="hljs-number">1024</span>*<span class="hljs-number">1024</span>*<span class="hljs-number">1024</span>];    <span class="hljs-comment">//Error</span>
+    <span class="hljs-comment">//必须修改代码，让创建的数组变小</span>
+
+}
+</div></code></pre>
+<h3 id="14-%E5%BC%82%E5%B8%B8%E8%BF%87%E7%A8%8B%E8%A7%A3%E6%9E%90">1.4 异常过程解析</h3>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    <span class="hljs-comment">/*
+      定义一个方法，获取数组指定索引的元素
+      参数：
+      int arr[];
+      int index ;
+     */</span>
+    <span class="hljs-keyword">int</span> arr[]={<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
+    <span class="hljs-keyword">int</span> e=getElement(arr,<span class="hljs-number">3</span>);
+    System.out.println(e);
+    System.out.println(<span class="hljs-string">"hello"</span>);
+
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getElement</span><span class="hljs-params">(<span class="hljs-keyword">int</span> []arr,<span class="hljs-keyword">int</span> index)</span>
+ </span>{
+     <span class="hljs-keyword">int</span> ele=arr[index];
+     <span class="hljs-keyword">return</span> ele;
+ }
+</div></code></pre>
+<img src="../../桌面/Java-exp/Error_20230421141010.png" alt="Error_20230421141010" style="zoom:200%;" />
+<blockquote>
+<p>处理流程如下：</p>
+</blockquote>
+<p><strong><code>JVM</code> 发现异常会做两件事：</strong></p>
+<ul>
+<li><code>JVM</code> 会根据异常原因产生一个异常对象包含了异常产生的（内容，原因，位置）</li>
+<li>在<code>getElement</code>方法中，没有异常的处理器<code>try--catch</code>，那么JVM就会把异
+常对象抛出给方法调用者<code>main</code>方法来处理这个异常。</li>
+</ul>
+<p><strong><code>Main</code>方法：</strong></p>
+<ul>
+<li>接收异常对象，<code>main</code>方法没有异常的处理逻辑，继续把对象抛出给main方法的调用者<code>JVM</code>处理</li>
+</ul>
+<p><strong><code>JVM</code>接受到这个异常对象做了两件事：</strong></p>
+<ul>
+<li>把异常对象（内容，原因，位置）以红色的字体打印在控制台</li>
+<li><code>JVM</code>会终止当前正在执行的<code>Java</code>程序 ---&gt;中断处理</li>
+</ul>
+<p>#<code>2.异常的处理</code></p>
+<p><code>Java</code> 异常处理的5个关键字<code>：try,catch,finally,throw,throws;</code></p>
+<h2 id="2%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><code>2.异常处理</code></h2>
+<h3 id="21-%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8throw"><code>2.1</code> <code>抛出异常throw</code></h3>
+<p>在编写程序时，必须考虑程序出现问题的情况。</p>
+<p>在<code>Java</code>中，提供了一个<code>throw</code> 关键字</p>
+<ol>
+<li>创建一个异常对象，封装一些提示信息。</li>
+<li>需要将这个异常对象通过<code>throw</code>关键字告知给调用者，<code>throw</code>异常对象</li>
+</ol>
+<p>​	<code>throw</code>用在方法内，用来抛出一个异常对象，将这个异常对象传递到调用者出去，并结束当前方法的执行。</p>
+<p>使用格式：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> 异常类名（参数）;
+</div></code></pre>
+<p>例如：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException(<span class="hljs-string">"要访问的arr数组不存在"</span>);
+</div></code></pre>
+<h4 id="throw%E5%85%B3%E9%94%AE%E5%AD%97"><code>throw关键字</code></h4>
+<p>作用：
+可以使用<code>throw</code>关键字在指定的方法中抛出指定的异常。
+使用格式：
+<code>throw</code> <code>new</code> <code>xxxException</code>(&quot;异常产生的原因&quot;);
+<code>Notice：</code></p>
+<ol>
+<li><code>throw</code> 关键字必须写在方法的内部</li>
+<li><code>throw</code> 关键字后边的<code>new</code>对象必须是<code>Exception</code>或者<code>Exception</code>的子类对象。</li>
+<li><code>throw</code> 关键字抛出指定的异常对象，我们就必须处理这个异常对象
+<ul>
+<li><code>throw</code> 关键字后边创建的<code>RuntimeException</code>或者是<code>RuntimeException</code> 子类对象，交给<code>JVM</code>处理（打印异常对象，中断程序）</li>
+<li><code>throw</code> 关键字后边创建的是编译异常（写代码的时候报错），我们就必须处理这个异常</li>
+<li><code>NullPointerException</code> 是一个运行期异常，是<code>RuntimeException</code>的一个子类</li>
+</ul>
+</li>
+</ol>
+<pre class="hljs"><code><div> <span class="hljs-comment">// 分析异常产生过程，如何处理异常</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+      <span class="hljs-keyword">int</span> arr[]=<span class="hljs-keyword">null</span>;
+       <span class="hljs-keyword">int</span> e=getElement(arr,<span class="hljs-number">3</span>);
+       System.out.println(e);
+   }
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getElement</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[],<span class="hljs-keyword">int</span> index)</span>
+   </span>{
+
+       <span class="hljs-keyword">if</span>(arr==<span class="hljs-keyword">null</span>)
+       {
+           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException(<span class="hljs-string">"输入的数组为空"</span>);
+           <span class="hljs-comment">//Exception in thread "main" java.lang.NullPointerException: 输入的数组为空</span>
+       }
+       <span class="hljs-keyword">if</span>(index&lt;<span class="hljs-number">0</span>||index&gt;arr.length-<span class="hljs-number">1</span>)
+       {
+           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArrayIndexOutOfBoundsException(<span class="hljs-string">"数组越界"</span>);
+           <span class="hljs-comment">// Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 数组越界</span>
+       }
+       <span class="hljs-keyword">int</span> e=arr[index];
+       <span class="hljs-keyword">return</span> e;
+   }
+</div></code></pre>
+<p><code>收获：</code></p>
+<pre class="hljs"><code><div>以后工作中，首先必须对方法传过来的参数进行合法性校验
+如果参数不合法，我们就必须抛出异常的原因，告诉方法的调用者，传递的参数有问题
+可以对传递过来的参数index 进行合法性校验
+如果index的范围不在数组的索引范围内
+那么我们就必须抛出数组索引越界异常，告知方法的调用者”传递的索引超出了数组的使用范围“
+</div></code></pre>
+<h3 id="22-objects%E9%9D%9E%E7%A9%BA%E5%88%A4%E6%96%AD"><code>2.2 Objects非空判断</code></h3>
+<p>还记得我们学习过的一个类Objects吗，曾经提到过它由一些静态的使用方法组成，这些方法是null-save（空指针安全的）那么在它的源码中，对对象为null的值进行了爬出异常操作</p>
+<ul>
+<li><code>public static &lt;T&gt;T requireNonNull(T obj)</code> :查看指定引用对象是不是null.</li>
+</ul>
+<p>查看源代码时发现这里对null进行了抛出异常操作</p>
+<p>以后对参数进行判断时可以直接使用Objects中的方法判断，简化代码</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//e.g </span>
+       Objects.requireNonNull(arr,<span class="hljs-string">"数组为空"</span>);
+       Objects.requireNonNull(arr);
+</div></code></pre>
+<h3 id="23-%E5%A3%B0%E6%98%8E%E5%BC%82%E5%B8%B8-throws"><code>2.3 声明异常 throws</code></h3>
+<p><code>声明异常：</code>将问题表示出来，报告给调用者。如果方法内通过<code>throw</code>抛出了编译异常，而没有捕获处理，那么必须通过<code>throws</code>进行声明，让调用者去处理，所有<code>RuntimeException</code>都无需用<code>throws</code>声明。</p>
+<p><code>声明异常格式：</code></p>
+<pre class="hljs"><code><div>修饰符 返回值类型 方法名（参数） <span class="hljs-keyword">throws</span> 异常类名<span class="hljs-number">1</span>，异常类名<span class="hljs-number">2</span>...{}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-keyword">throws</span>关键字：异常处理的第一种方式，交给别人处理
+作用：
+      当方法内部抛出异常对象的时候，那么我们就必须处理这个异常对象
+      可以使用<span class="hljs-keyword">throws</span>关键字才处理异常对象，会把异常对象声明抛出个方法的调用者处理
+      自己不处理，交给鄙人处理，最终交给JVM处理--&gt;中断处理
+使用格式：再方法生民时使用
+     修饰符 返回值类型 方法名 （参数列表） <span class="hljs-keyword">throws</span> AAAException BBBException...{
+              <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AAAException（”reasonAAA“）
+              <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AAAException（”reasonBBB“）
+              .....
+     }
+</div></code></pre>
+<p>注意：</p>
+<ol>
+<li><code>throws</code> 关键字必须写在方法声明处。</li>
+<li><code>throws</code> 关键字后边声明的异常必须时<code>Exception</code>或者是<code>Exception</code>的子类</li>
+<li>方法内部如果抛出了多个异常对象，那么<code>throws</code>后面必须也声明多个异常，<code>如果抛出的多个异常对象由父子类关系那么直接声明父子类异常即可</code>。</li>
+<li>调用了一个声明处异常的方法，就必须处理异常，要么继续<code>throw，最终交给JVM中断处理，要么用 try..catch</code>自己处理异常.</li>
+</ol>
+<p><code>声明异常的代码演示：</code></p>
+<pre class="hljs"><code><div> <span class="hljs-comment">//public static void main(String[] args) throws FileNotFoundException,IOException</span>
+   <span class="hljs-comment">//public static void main(String[] args) throws IOException; IOException extends Exception</span>
+   <span class="hljs-comment">//IOException extends Exception</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+         readFile(<span class="hljs-string">"D:\\文档\\阿门Home\\Java异常和线程.md"</span>);
+   }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">readFile</span><span class="hljs-params">(String fileName)</span> <span class="hljs-keyword">throws</span> FileNotFoundException,IOException </span>{
+      <span class="hljs-comment">//检查当前文件路径是否存在，如果不是抛异常</span>
+      <span class="hljs-keyword">if</span>(!fileName.equals(<span class="hljs-string">"D:\\文档\\阿门Home\\Java异常和线程.md"</span>))
+      {
+         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> FileNotFoundException(<span class="hljs-string">"DD"</span>);
+      }
+      <span class="hljs-comment">//检查文件后缀名是否为.txt 若不是则抛出异常</span>
+      <span class="hljs-keyword">if</span>(!fileName.endsWith(<span class="hljs-string">".txt"</span>))
+      {
+         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IOException(<span class="hljs-string">"没有找到该文件"</span>);
+      }
+    }
+</div></code></pre>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+A[Exception]==>B[IOException]
+A[Exception]==>C[RuntimeException]
+C[RuntimeException]==>D[NullPointerException]
+C[RuntimeException]==>E[OutOfBoundException]
+B[IOException]==>F[FilewNotFoundException]
+...
+</div></code></pre>
+<h3 id="24-%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8trycatch"><code>2.4 捕获异常try…catch</code></h3>
+<p>当使用<code>throw</code>后，程序抛出异常，最终导致JVM中断处理，而<code>try…catch</code> 会自己处理异常，可以继续处理后续程序。</p>
+<p>格式</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">try</span>{
+    <span class="hljs-comment">//可能产生异常的代码</span>
+}<span class="hljs-keyword">catch</span>(异常类名 变量名)<span class="hljs-comment">//定义一个异常的变量，用来接收try中抛出的异常对象</span>
+{
+    异常的处理逻辑，即如何处理异常对象，
+}
+</div></code></pre>
+<p><code>注意：一般在工作中，会把异常的信息记录到一个日志中。</code></p>
+<ol>
+<li><code>try</code>中可能会产生多个异常对象，那么可以使用多个<code>catch</code>来捕获处理这些对象</li>
+<li>如果<code>try</code>中出现了异常，那么就会执行catch中的异常处理逻辑，执行完毕后继续执行后面的代码，如果<code>try</code>中没有异常，不会执行<code>catch</code>中的处理逻辑，继续（<code>try</code>…<code>catch</code>体之后的代码）执行之后代码</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+         <span class="hljs-keyword">try</span>{
+             readFile(<span class="hljs-string">"D:\\文档\\阿门Home\\Java异常和线程.md"</span>);
+         }<span class="hljs-keyword">catch</span> (IOException ioe)
+         {
+             System.out.println(<span class="hljs-string">"IOEProblem"</span>);
+         }
+       System.out.println(<span class="hljs-string">"hello world"</span>);
+   }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">readFile</span><span class="hljs-params">(String fileName)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+      <span class="hljs-keyword">if</span>(!fileName.equals(<span class="hljs-string">"D:\\文档\\阿门Home\\Java异常和线程.md"</span>))
+      {
+         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> FileNotFoundException(<span class="hljs-string">"DD"</span>);
+      }
+
+      <span class="hljs-keyword">if</span>(!fileName.endsWith(<span class="hljs-string">".txt"</span>))
+      {
+         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IOException(<span class="hljs-string">"没有找到该文件"</span>);
+      }
+    }
+</div></code></pre>
+<p><img src="../../桌面/Java-exp/IOEProblem_20230421213325.png" alt="IOEProblem_20230421213325"></p>
+<h5 id="%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF">如何获取异常信息：</h5>
+<p><code>Throwable</code> (<code>异常和错误的超类</code>)中定义了一些查看方法：</p>
+<ul>
+<li><code>public String getMessage</code>(): 获取异常的表述简短信息，提示错误原因</li>
+<li><code>public</code> <code>String</code> <code>toString</code>():获取异常的类型和异常详细描述信息（一般不用）</li>
+<li><code>public</code> <code>void</code> <code>printStackTrace</code>():打印异常的跟踪站信息并输出到控制台。</li>
+</ul>
+<p>​	包含了异常的类型，异常的原因，还包括异常出现的位置，在开发和调试阶段都要</p>
+<p>使用<code>printStackTrace</code>；<code>JVM默认调用此方法</code></p>
+<pre class="hljs"><code><div> System.out.println(<span class="hljs-string">"IOEProblem"</span>);
+             System.out.println(ioe.getMessage());<span class="hljs-comment">//没有找到该文件</span>
+             <span class="hljs-comment">//重写Object类的toStirng方法</span>
+             System.out.println(ioe.toString());<span class="hljs-comment">//java.io.IOException: 没有找到该文件</span>
+             ioe.printStackTrace();<span class="hljs-comment">//程序中断</span>
+<span class="hljs-comment">//             java.io.IOException: 没有找到该文件</span>
+<span class="hljs-comment">//             at Exception.example01.readFile(example01.java:51)</span>
+<span class="hljs-comment">//             at Exception.example01.main(example01.java:32)</span>
+</div></code></pre>
+<h3 id="25-finally%E4%BB%A3%E7%A0%81%E5%9D%97"><code>2.5</code> <code>finally</code>代码块</h3>
+<p>有一些特定的代码块无论异常是否发生，都需要指向，另外，应为异常会引发程序跳转，导致有些语句执行不到。而<code>finally</code>就是解决这个问题的，<code>finally</code>代码块中存放的代码一定会被执行的。</p>
+<p>当我们在<code>try</code>语句中带开了一些物理资源（磁盘文件/网络连接/数据库连接等），我们都得在使用完成之后，最终关闭打开的资源。</p>
+<p><code>又如：当学习IO流之后，当打开一个关联文件的资源，最后程序不管结果如何，都需要把这个资源关闭。</code></p>
+<p>finally语法</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">try</span>...<span class="hljs-keyword">catch</span>...<span class="hljs-keyword">finally</span><span class="hljs-comment">//自身需要处理异常，最终还得关闭资源</span>
+</div></code></pre>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ol>
+<li><code>finally</code>不能单独使用，必须和try一起使用。</li>
+<li><code>finally</code> 一般用于资源释放（资源回收），无论程序是否出现异常，最后都要释放资源（<code>IO</code>）</li>
+</ol>
+<p>参考代码：</p>
+<p><code>上面的代码块hello world放入finally中</code></p>
+<pre class="hljs"><code><div><span class="hljs-comment">//Main：： </span>
+<span class="hljs-keyword">try</span>{
+        readFile(<span class="hljs-string">"D:\\文档\\阿门Home\\Java异常和线程.md"</span>);
+         }<span class="hljs-keyword">catch</span> (IOException ioe)
+         {
+             System.out.println(<span class="hljs-string">"IOEProblem"</span>);
+             ioe.printStackTrace();<span class="hljs-comment">//程序中断</span>
+         }<span class="hljs-keyword">finally</span>{
+             System.out.println(<span class="hljs-string">"hello world"</span>);
+         }
+}
+</div></code></pre>
+<h3 id="26-%E5%A4%9A%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7"><code>2.6 多异常的捕获</code></h3>
+<ol>
+<li><code>try</code>中可能会产生的异常对象：</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">new</span> ArrayIndexOutOfBoundsException(<span class="hljs-string">"3"</span>);
+<span class="hljs-keyword">new</span> IndexOutOfBoundsException(<span class="hljs-string">"3"</span>);
+</div></code></pre>
+<p><code>try</code>中如果出现异常对象，就会把异常对象抛出给catch处理，抛出的异常对象，会从上到下一次赋值给<code>catch</code>中定义的异常。</p>
+<p><code>多个异常的处理</code></p>
+<ol>
+<li>
+<p>多个异常分别处理。</p>
+<p>代码：</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//1.多个异常分别处理</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> arr[]={<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
+        <span class="hljs-keyword">try</span>{
+            System.out.println(arr[<span class="hljs-number">3</span>]);
+        }<span class="hljs-keyword">catch</span>(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println(e);
+        }
+        <span class="hljs-keyword">try</span>{
+            List&lt;Integer&gt;list=<span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+            list.add(<span class="hljs-number">1</span>); list.add(<span class="hljs-number">1</span>); list.add(<span class="hljs-number">1</span>);
+            System.out.println(list.get(<span class="hljs-number">3</span>));
+        }<span class="hljs-keyword">catch</span>(IndexOutOfBoundsException e)
+        {
+            System.out.println(e);
+        }
+    }
+</div></code></pre>
+<blockquote>
+<p>结果</p>
+</blockquote>
+<pre class="hljs"><code><div>java.lang.ArrayIndexOutOfBoundsException: <span class="hljs-number">3</span>
+java.lang.IndexOutOfBoundsException: Index: <span class="hljs-number">3</span>, Size: <span class="hljs-number">3</span>
+</div></code></pre>
+</li>
+<li>
+<p>多个异常一次捕获多次处理。</p>
+<p>代码：</p>
+<pre class="hljs"><code><div> <span class="hljs-comment">//ArrayIndexOutOfBoundsException extends IndexOutOfBoundsException</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span>{
+            List&lt;Integer&gt;list=<span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+            list.add(<span class="hljs-number">1</span>);list.add(<span class="hljs-number">1</span>);list.add(<span class="hljs-number">1</span>);
+            System.out.println(list.get(<span class="hljs-number">3</span>));
+        }<span class="hljs-keyword">catch</span>(ArrayIndexOutOfBoundsException AIE){
+            System.out.println(AIE);
+        }<span class="hljs-keyword">catch</span>(IndexOutOfBoundsException IE){
+            System.out.println(IE);
+        }
+    }
+<span class="hljs-comment">//java.lang.IndexOutOfBoundsException: Index: 3, Size: 3</span>
+</div></code></pre>
+<blockquote>
+<p>注意：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">catch</span>里边定义的异常变量，如果有子父类关系，那么子类的异常变量必须写在上边，否则就会报错
+</div></code></pre>
+</blockquote>
+</li>
+<li>
+<p>多个异常一次捕获，一次处理。</p>
+</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span>{
+            List&lt;Integer&gt;list=<span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+            list.add(<span class="hljs-number">1</span>);list.add(<span class="hljs-number">1</span>);list.add(<span class="hljs-number">1</span>);
+            System.out.println(list.get(<span class="hljs-number">3</span>));
+        }<span class="hljs-keyword">catch</span>(Exception e){
+            System.out.println(e);
+        }
+    }
+</div></code></pre>
+<p><code>运行时抛出的异常可以不处理，即不捕获，也不声明抛出，默认交给虚拟机处理，什么时候不抛出运行时异常了，再处理。</code></p>
+<ul>
+<li>如果<code>finally</code>里面有<code>return</code>语句，永远返回<code>finally</code>中的结果，避免该情况。</li>
+<li>子父类：</li>
+<li>如果父类抛出了多个异常，子类重写父类方法时，抛出和父类<code>相同的异常</code>/抛出父类的<code>异常子类</code>/<code>不抛出异常</code>。</li>
+<li>父类没有抛出异常，子类重写该方法时也不可抛出异常。此时子类产生该异常，只能捕获处理，不能声明抛出</li>
+<li>在<code>try/catch</code>后可以追加<code>finally</code>代码块，其中的代码一定会被执行，通常用于资源回收。</li>
+</ul>
+<h2 id="3%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><code>3.自定义异常</code></h2>
+<blockquote>
+<p>Java提供的异常类，不够我们使用，我么需要自定义一些异常类</p>
+</blockquote>
+<p>格式：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">xxxException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span>|<span class="hljs-title">RuntimeException</span> </span>{
+   - 添加一个空参数的构造方法
+   - 添加一个带异常信息的构造方法
+}
+</div></code></pre>
+<p>注意：</p>
+<ul>
+<li>自定义异常一般都是以<code>Exception</code>结尾，用以说明此类是一个异常类</li>
+<li>自定义异常类必须继承自<code>Exception</code>或<code>RuntimeException</code>
+<ul>
+<li>继承自<code>Exception</code>：那么就是一个编译期异常，如果方法内部抛出了编译期异常，必须处理这个异常，要么<code>throw</code>，要么<code>try</code>..<code>catch</code>;</li>
+<li>继承自<code>RuntimeException</code>：那么定义的异常类无需处理，交给虚拟机处理。</li>
+</ul>
+</li>
+</ul>
+<p>代码实例：</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> Exception;
+<span class="hljs-comment">//在Exception包下声明自定义异常类注册异常类</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RegisterException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RegisterException</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">super</span>();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RegisterException</span><span class="hljs-params">(String s)</span>
+    </span>{
+         <span class="hljs-keyword">super</span>(s);
+    }
+}
+</div></code></pre>
+</blockquote>
+<p>实例：</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> Exception;
+
+<span class="hljs-keyword">import</span> org.w3c.dom.ls.LSOutput;
+
+<span class="hljs-keyword">import</span> java.io.File;
+<span class="hljs-keyword">import</span> java.io.FileNotFoundException;
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.nio.file.Files;
+<span class="hljs-keyword">import</span> java.nio.file.Path;
+<span class="hljs-keyword">import</span> java.text.ParseException;
+<span class="hljs-keyword">import</span> java.text.SimpleDateFormat;
+<span class="hljs-keyword">import</span> java.util.*;
+<span class="hljs-keyword">import</span> java.util.Date;
+<span class="hljs-keyword">import</span> java.util.Objects;
+<span class="hljs-keyword">import</span> java.lang.Exception;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">example01</span> </span>{
+    <span class="hljs-keyword">static</span> String[] usernames={<span class="hljs-string">"shx"</span>,<span class="hljs-string">"lt"</span>,<span class="hljs-string">"skks"</span>};
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> RegisterException </span>{
+     Scanner sc =<span class="hljs-keyword">new</span> Scanner(System.in);
+     String username=sc.next();
+     checkUserName(username);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkUserName</span><span class="hljs-params">(String username)</span> <span class="hljs-keyword">throws</span> RegisterException </span>{
+        <span class="hljs-keyword">for</span>(String name:usernames)
+        {
+            <span class="hljs-keyword">if</span>(name.equals(username))
+            {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RegisterException(<span class="hljs-string">"用户名已经被注册了"</span>);
+            }<span class="hljs-keyword">else</span> <span class="hljs-keyword">continue</span>;
+        }
+        System.out.println(<span class="hljs-string">"恭喜你注册成功！"</span>);
+    }
+}
+</div></code></pre>
+</blockquote>
+<p>问题：</p>
+<ol>
+<li><code>父类中未声明抛出异常的方法，子类重写时允许增加抛出checked类型异常声明吗，为什么？</code></li>
+</ol>
+<blockquote>
+<p>答：在Java中，子类重写方法时允许增加抛出checked类型异常声明。这是因为子类重写方法时可以添加更多的异常检查（checked exceptions）来反映其特定实现的情况。</p>
+<p>当然，在进行此操作时需要遵循以下规则：</p>
+<ol>
+<li>子类添加的异常必须是父类方法中未声明的异常。</li>
+<li>子类添加的异常必须是checked类型异常。</li>
+<li>子类抛出的异常不能比父类抛出的异常更通用。</li>
+</ol>
+<p>如果违反任何一条规则，则编译器将无法编译代码。</p>
+<p>需要注意的是，如果父类方法抛出了checked类型异常，则在子类覆盖该方法时，要么不抛出异常，要么只能抛出具有相同或更具体类型的异常。</p>
+<p>总之，子类重写父类方法时，允许添加抛出checked类型异常声明，但需要遵守一定的规则以确保代码健壮性和正确性。</p>
+</blockquote>
+<ol start="2">
+<li><code>java允许自定义unchecked类吗？</code></li>
+</ol>
+<blockquote>
+<p>答：Java允许自定义未检查异常类。在Java中，未检查异常通常是RuntimeException或其子类。通过扩展RuntimeException或其子类，您可以创建自己的未检查异常类。</p>
+<p>例如，您可以创建一个称为MyException的未检查异常类，如下所示：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RuntimeException</span> </span>{
+       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyException</span><span class="hljs-params">(String message)</span> </span>{
+          <span class="hljs-keyword">super</span>(message);
+       }
+}
+</div></code></pre>
+<p>然后，在您的代码中，您可以像任何其他未检查异常一样使用MyException：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> MyException(<span class="hljs-string">"Something went wrong"</span>);
+</div></code></pre>
+</blockquote>
+<ol start="3">
+<li><code>出现异常时，java会沿方法调用栈寻找最近一个专门捕获处理与此异常类型相同的程序，而非能处理此异常类型的程序吗？</code></li>
+</ol>
+<blockquote>
+<p>是的，在Java中，当发生异常时，程序会沿着调用方法的栈向上查找，寻找最近的专门捕获和处理此异常类型的程序，而不是能够处理该异常类型的程序。在方法中抛出异常时，可以使用try-catch语句来捕获并处理异常。</p>
+<p>如果没有相应的catch块来处理异常，则该异常将被传递到调用该方法的方法中，如果该方法也没有相应的catch块来处理异常，则该异常将继续向上传递，直到找到包含相应的catch块来处理该异常为止。如果在整个调用堆栈中都没有找到任何一个处理该异常的catch块，则程序将会终止执行，并打印异常信息。</p>
+<p>需要注意的是，Java要求catch块按照异常的子类相对于父类的顺序排列。这种排列方式可以确保兼容性，即在多态的情况下，能够正确地识别出异常的类型并进行处理。</p>
+<p>总之，Java会沿着方法调用栈向上查找最近的专门捕获处理与此异常类型相同的程序，以确保异常能够得到适当的处理。</p>
+</blockquote>
+<ol start="4">
+<li><code>所有可能出现的异常都必须被显式捕获处理，否则无法通过编译吗？</code></li>
+</ol>
+<blockquote>
+<p>在Java中，并不是所有可能出现的异常都必须被显式捕获处理，否则无法通过编译。只有checked类型的异常（也称为受检查异常）才需要显式捕获处理或者在方法签名上抛出异常。</p>
+<p>对于unchecked类型的异常（也称为未受检查异常），则不需要强制进行异常处理，但是建议在代码中进行适当的异常处理。当然，如果未能正确处理这些异常，程序运行时可能会引起一些问题，例如异常信息的输出和程序的崩溃等。</p>
+<p>此外，在Java 7及更高版本中，还可以使用try-with-resources语句来自动关闭资源，同时避免了由于忘记关闭资源而导致的潜在问题。</p>
+<p>总之，在Java中，只有checked类型的异常需要强制进行异常处理，而对于unchecked类型的异常，则不需要强制进行异常处理，但是需要在代码中进行适当的异常处理来确保程序的健壮性和可靠性。</p>
+</blockquote>
+<ol start="5">
+<li><code>可以不在出现异常的方法内捕获处理异常吗？</code></li>
+</ol>
+<blockquote>
+<ol>
+<li>在该方法的调用者中捕获和处理异常。</li>
+<li>将异常传递给更高层次的调用者；如果在整个调用堆栈中都没有处理该异常，则程序将终止执行，将异常信息输出到控制台或记录在日志文件中。</li>
+</ol>
+<p>这三种方式都可以用于处理异常，选择哪种方式取决于具体情况。通常，在处理异常时，建议将代码与业务逻辑分开，并遵循异常传递机制（也称为异常转发机制）。</p>
+<p>需要注意的是，在使用try-catch语句和处理异常时，应该尽可能地减小try块的范围，只让可能抛出异常的语句放在其中，以避免不必要的捕获和处理异常。</p>
+<p>总之，在Java中，不需要在出现异常的方法内捕获和处理异常，可以将异常传递给更高层次的调用者进行处理。但是，应该注意良好的异常处理实践，确保程序的健壮性和可靠性。</p>
+</blockquote>
+<ol start="6">
+<li><code>与外部资源互交时，可能出现Unchecked类型异常吗？</code></li>
+</ol>
+<blockquote>
+<p>​	在Java中，当与外部资源（如文件、网络和数据库等）进行互交时，可能会出现未检查异常（Unchecked Exception），比如NullPointerException、IllegalArgumentException等等。这些异常通常是由于资源访问或数据传输的问题导致的。</p>
+<p>​	例如，在使用Java IO类读取文件时，可能会发生FileNotFoundException或IOException等未检查异常。同样，在使用Java Socket类进行网络编程时，也可能会出现连接超时或网络故障等未检查异常。</p>
+<p>需要注意的是，虽然这些未检查异常在Java编程中很常见，但它们并不是所有与外部资源互交时都可能出现的异常。某些异常，如SecurityException、IOException等可能是checked类型异常，需要在代码中显式捕获和处理。</p>
+<p>总之，在Java中，与外部资源互交时可能会出现未检查异常，开发者应该在代码中进行适当的异常处理来确保程序的健壮性和可靠性。</p>
+</blockquote>
+<ol start="7">
+<li><code>抽象方法可以抛出异常吗？</code></li>
+</ol>
+<blockquote>
+<p>​	在Java中，抽象方法是不允许声明抛出异常的。这是因为抽象方法必须在具体的子类中实现，而子类可以覆盖父类中的异常声明。如果在抽象方法中声明了异常，则子类可能需要增加相同的异常声明或者更具体的异常声明，这样就会导致冲突和不一致。</p>
+<p>​	具体地说，如果一个接口或抽象类中的方法具有异常声明，则任何实现该接口或继承该抽象类的具体子类都必须捕获并处理这些异常。但是，对于抽象方法来说，它只是一个声明，在具体的子类中进行实现时，可以选择增加相同的异常声明、更具体的异常声明或者不声明异常。</p>
+<p>因此，在Java中，抽象方法不允许声明抛出异常，否则会导致子类无法实现该方法或者需要增加冲突的异常声明，从而违反了Java语言的继承和多态机制。</p>
+<p>总之，在Java中，抽象方法不能声明抛出异常，如果需要在具体的子类中抛出异常，则需要在实现该方法的子类中添加合适的异常声明。</p>
+</blockquote>
+<ol start="8">
+<li><code>方法声明抛出异常会影响方法签名吗？</code></li>
+</ol>
+<blockquote>
+<p>在Java中，方法声明抛出异常会影响方法签名。一个方法的签名由方法名和参数列表组成，如果两个方法在方法名称和参数列表上完全一致，但是其中一个方法声明了抛出异常，而另一个没有声明抛出异常，则它们的方法签名也是不同的。</p>
+</blockquote>
+<h2 id="4%E5%A4%9A%E7%BA%BF%E7%A8%8B"><code>4.多线程</code></h2>
+<h3 id="41%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C"><code>4.1并发和并行</code></h3>
+<blockquote>
+<ul>
+<li>并发：指的是两个或者多个线程在同一个时间段内发生（一个<code>CPU</code>交替执行多个任务）。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>并行：指的是两个或者多个线程在同一时刻发生。（多核<code>CPU</code>同时执行）</li>
+</ul>
+</blockquote>
+<h3 id="42%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B"><code>4.2线程和进程</code></h3>
+<ul>
+<li>进程是指<code>一个内存中运行的应用程序</code>，每个进程都有一个独立的内存空间，一个应用程序可以（拥有）同时运行多个进程；进程是程序的一次执行过程，是<code>系统运行程序</code>的<code>基本单位</code>；<code>系统运行一个程序就是一个进程的创建，运行，消亡的过程</code>。</li>
+<li>线程是进程中的一个<code>执行单元</code>，负责当前进程中程序的执行，一个进程中至少有一个线程。<code>一个进程中可以有多个线程</code>，这个应用程序一可以称之为<code>多线程</code>程序。</li>
+</ul>
+<blockquote>
+<p>总结：一个程序至少有一个进程，一个进程中可以有多个线程。</p>
+</blockquote>
+<p><code>实例电脑管家</code>：</p>
+<blockquote>
+<p>点击功能（病毒查撒谎，清理垃圾，电脑加速）执行后</p>
+<p>就会开启一条应用程序到CPU的执行路径，CPU就可以通过这个路径执行功能，这个路径有一个名字，叫做线程，<code>CPU在多个线程之间高速切换</code></p>
+</blockquote>
+<h3 id="43-%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><code>4.3 线程调度</code></h3>
+<ul>
+<li>
+<p><code>分时调度</code></p>
+<p>所有线程轮流使用<code>CPU</code>，平均每个线程专用<code>CPU</code>时间</p>
+</li>
+<li>
+<p><code>抢占式调度</code></p>
+<p>让<code>优先级高</code>的线程优先使用<code>CPU</code>，如果线程优先级相同，则会随机选择一个（线程随机性），<code>Java</code>使用抢占式调度</p>
+<ul>
+<li>设置线程优先级：可以在任务管理其中设置（<code>win11</code> 中详细信息）</li>
+</ul>
+</li>
+</ul>
+<h3 id="44-%E4%B8%BB%E7%BA%BF%E7%A8%8B"><code>4.4 主线程</code></h3>
+<ul>
+<li>主线程：执行主方法（<code>main</code>方法）的线程。</li>
+<li>单线程程序：<code>Java</code>程序中只有一个线程
+<ul>
+<li>执行从main方法开始，从上到下一次执行</li>
+</ul>
+</li>
+</ul>
+<h3 id="45-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%B1%BB"><code>4.5 创建线程类</code></h3>
+<h4 id="451javalangthread"><code>4.5.1.Java.lang.Thread</code></h4>
+<blockquote>
+<p>创建线程的方法：</p>
+</blockquote>
+<ul>
+<li>创建一个继承自<code>Thread</code>的子类</li>
+<li>在子类中重写<code>run</code>方法，设置线程任务</li>
+</ul>
+<blockquote>
+<p>调用线程的步骤：</p>
+</blockquote>
+<ul>
+<li>创建上述<code>Thead</code>的子类<code>对象</code></li>
+<li>调用<code>Thread</code> 类中的<code>start</code>方法，执行<code>run</code>方法</li>
+<li><code>start</code>方法会开辟新的栈空间，<code>从而进行多线程处理</code>，多个线程之间互不影响，而<code>仅调用run方法则是单线程</code></li>
+</ul>
+<blockquote>
+<p>代码：</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> Exception;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread01</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i&lt;<span class="hljs-number">30</span>;i++)
+        {
+            System.out.println(<span class="hljs-string">"to1"</span>+i);
+        }
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">start</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">super</span>.start();
+    }
+}
+
+</div></code></pre>
+<blockquote>
+<p>分析：<code>main线程，thread01</code>和<code>thread02</code>并发，抢夺线程执行</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        MyThread01 mythread01=<span class="hljs-keyword">new</span> MyThread01();
+        MyThread02 mythread02 = <span class="hljs-keyword">new</span> MyThread02();
+        mythread02.start();
+        mythread01.start();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">30</span>;i++)
+        {
+            System.out.println(<span class="hljs-string">"main"</span>+i);
+        }
+    }
+}
+</div></code></pre>
+<h4 id="452runnable-interface"><code>4.5.2.Runnable Interface</code></h4>
+<ul>
+<li>
+<p>创建<code>Runnable</code> 方法的实现类<code>RunnableImpl</code></p>
+</li>
+<li>
+<p>在主函数中创建一个<code>runnableImpl</code>对象重写<code>run</code>方法，调用<code>Thread</code>中的构造函数</p>
+<p><code>Thread（Runable）</code>创建一个新线程</p>
+</li>
+<li>
+<p>最后用<code>start</code>方法卡其线程</p>
+</li>
+</ul>
+<p>代码：</p>
+<p><code>RunnableImpl</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunableImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span></span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;<span class="hljs-number">30</span>;i++)
+        {
+            System.out.println(<span class="hljs-string">"run--&gt;"</span>+i);
+        }
+    }
+}
+
+</div></code></pre>
+<p><code>Test：</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        RunableImpl run=<span class="hljs-keyword">new</span> RunableImpl();
+        Thread t=<span class="hljs-keyword">new</span> Thread(run);
+        t.start();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">30</span>;i++)
+        {
+            System.out.println(<span class="hljs-string">"main"</span>+i);
+        }
+    }
+}
+</div></code></pre>
+<h4 id="453-runnable-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%A5%BD%E5%A4%84"><code>4.5.3 Runnable 接口的好处</code></h4>
+<ul>
+<li>
+<p><code>避免了单一继承的局限性</code></p>
+<p>一个类只能继承一个父类，而<code>Runnable</code>接口可以继承其他的类，实现其他的接口</p>
+</li>
+<li>
+<p><code>增强了程序的拓展性，降低了程序的耦合度</code></p>
+<p>实现<code>Runnable</code>接口的方法，吧设置线程任务和开启新线程进行了分离。</p>
+<p>可以通过传入不同<code>Runnable</code>接口来创建不同的线程；</p>
+</li>
+</ul>
+<h4 id="454-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><code>4.5.4 匿名内部类创建线程</code></h4>
+<ul>
+<li>没有名字，写在其它类内部</li>
+<li>作用：简化代码，把继承，重写，创建子类对象一步完成。</li>
+</ul>
+<p><code>代码：</code></p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">new</span> Thread(){
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">30</span>;i++)
+                {
+                    System.out.println(<span class="hljs-string">"my--&gt;"</span>+i);
+                }
+            }
+        }.start();
+        <span class="hljs-keyword">new</span> Thread( <span class="hljs-keyword">new</span> Runnable(){
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">30</span>;i++)
+                {
+                    System.out.println(<span class="hljs-string">"thread--&gt;"</span>+i);
+                }
+            }
+        }).start();
+
+
+    }
+}
+
+</div></code></pre>
+<h3 id="46-thread%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95"><code>4.6 Thread类中的方法</code></h3>
+<ul>
+<li>
+<p>获取线程的名称：</p>
+<ul>
+<li>
+<p>使用<code>Thread</code>类中的<code>getName</code>（）方法返回线程名称</p>
+</li>
+<li>
+<p>可以获取到当前从正在执行线程，<code>currentThread</code>（）返回当前正在执行线程名称.</p>
+<p><code>代码：</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        MyThread01 mythread01=<span class="hljs-keyword">new</span> MyThread01();
+        MyThread02 mythread02 = <span class="hljs-keyword">new</span> MyThread02();
+        mythread02.start();
+        mythread01.start();
+        <span class="hljs-keyword">new</span> MyThread01().start();
+        Thread t=Thread.currentThread();
+        System.out.println(<span class="hljs-string">"t=="</span>+t.getName());
+    }
+}
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>设置线程的名称：</p>
+<ul>
+<li>使用<code>Thread</code>类中的<code>setName</code>方法</li>
+</ul>
+</li>
+<li>
+<p>使得当前执行的线程以指定的毫秒数暂停一次（频率）</p>
+<p><code>public static void sleep(long millis)</code></p>
+<p>调用：<code>Thread.sleep()</code></p>
+</li>
+</ul>
+<h3 id="47%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><code>4.7线程安全问题</code></h3>
+<ul>
+<li>单线程程序不会出现线程安全问题</li>
+<li>多线程，没有访问共享数据，也不会产生线程安全问题</li>
+<li>多线程，访问共享数据，有可能产生线程安全问题</li>
+</ul>
+<h4 id="471-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF">4.7.1 线程同步技术</h4>
+<ul>
+<li>
+<p><code>同步代码块</code>：使用<code>synchronized</code>关键字</p>
+<p>代码<code>RunnableImpl</code>：</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunableImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span></span>{
+    <span class="hljs-keyword">private</span>  <span class="hljs-keyword">int</span> ticket = <span class="hljs-number">100</span>;<span class="hljs-comment">//线程共享资源</span>
+    Object obj =<span class="hljs-keyword">new</span> Object();<span class="hljs-comment">//锁对象</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+         <span class="hljs-keyword">while</span>(ticket&gt;<span class="hljs-number">0</span>)
+         {
+             <span class="hljs-keyword">synchronized</span> (obj)
+             {
+                 <span class="hljs-keyword">if</span>(ticket&gt;<span class="hljs-number">0</span>)
+                 {
+                     System.out.println(Thread.currentThread().getName()+<span class="hljs-string">"buy one ticket --&gt;"</span>+ticket);
+                     ticket--;
+                 }<span class="hljs-keyword">else</span>
+                 {
+                     System.out.println(<span class="hljs-string">"fail to do so"</span>);
+                 }
+             }
+         }
+
+    }
+}
+</div></code></pre>
+</blockquote>
+<p>代码<code>Main</code>：</p>
+<blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>{
+ <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        Runnable r = <span class="hljs-keyword">new</span> RunableImpl();
+        Thread t0 = <span class="hljs-keyword">new</span> Thread(r);
+        Thread t1 = <span class="hljs-keyword">new</span> Thread(r);
+        Thread t2 = <span class="hljs-keyword">new</span> Thread(r);
+        t0.start();
+        t1.start();
+        t2.start();
+    }
+   }
+</div></code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>同步技术的原理:使用了锁对象,这个锁对象叫做同步锁,也叫做对象所,也叫对象监视器,同步中的线程,没有执行完毕不会释放锁,同步外的对象没有锁不能进行同步</p>
+</blockquote>
+<ul>
+<li>
+<p><code>使用同步方法</code></p>
+<p>原理:</p>
+<ul>
+<li>
+<p>定义一个同步方法会把方法内部代码锁住</p>
+</li>
+<li>
+<p>只让一个线程执行该方法</p>
+</li>
+<li>
+<p>锁对象如果时静态同步方法,锁对象时本类对象的类文件<code>Runable.getClass</code>();</p>
+<p>否则就是<code>this</code>.</p>
+</li>
+</ul>
+<p>代码:</p>
+<pre class="hljs"><code><div>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> ticket = <span class="hljs-number">100</span>;
+    Object obj =<span class="hljs-keyword">new</span> Object();
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+         <span class="hljs-keyword">while</span>(ticket&gt;<span class="hljs-number">0</span>)
+         {
+             payTicket();
+         }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span>  <span class="hljs-keyword">void</span> <span class="hljs-title">payTicket</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">if</span>(ticket&gt;<span class="hljs-number">0</span>)
+        {
+            System.out.println(Thread.currentThread().getName()+<span class="hljs-string">"buy one ticket --&gt;"</span>+ticket);
+            ticket--;
+        }<span class="hljs-keyword">else</span>
+        {
+            System.out.println(<span class="hljs-string">"fail to do so"</span>);
+        }
+    }
+</div></code></pre>
+</li>
+</ul>
+<h3 id="472-lock%E6%8E%A5%E5%8F%A3%E9%94%81"><code>4.7.2 Lock(接口)锁</code></h3>
+<ul>
+<li><code>lock</code>/<code>unlock</code> 获取锁,释放锁
+<ul>
+<li>成员内部创建<code>lock</code>实现类例如系统提供的<code>ReentrantLock</code>();</li>
+<li>在可能会出现线程安全问题的代码块前使用<code>lock</code>获取锁.</li>
+<li>在可能会出现线程安全问题的代码块后使用<code>unlock</code>释放锁.</li>
+</ul>
+</li>
+<li><code>unlock</code>可以放入<code>finally</code>代码块中提高程序运行效率</li>
+</ul>
+<p>代码:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunableImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span></span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> ticket = <span class="hljs-number">100</span>;
+   Lock l=<span class="hljs-keyword">new</span> ReentrantLock();<span class="hljs-comment">//多态</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        l.lock();
+         <span class="hljs-keyword">while</span>(ticket&gt;<span class="hljs-number">0</span>)
+         {
+             <span class="hljs-keyword">if</span>(ticket&gt;<span class="hljs-number">0</span>)
+             {
+                 System.out.println(Thread.currentThread().getName()+<span class="hljs-string">"buy one ticket --&gt;"</span>+ticket);
+                 ticket--;
+             }<span class="hljs-keyword">else</span>
+             {
+                 System.out.println(<span class="hljs-string">"fail to do so"</span>);
+             }
+         }
+        l.unlock();
+    }
+
+}
+</div></code></pre>
+<h2 id="5%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><code>5.线程状态</code></h2>
+<h3 id="51%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A6%82%E8%BF%B0"><code>5.1线程状态概述</code></h3>
+<p><img src="../../../../桌面/Java-exp/线程状态.png" alt="线程状态"></p>
+<ul>
+<li><code>Timed Waiting计时等待状态</code></li>
+</ul>
+<p><img src="../../../../桌面/Java-exp/⏲等待.png" alt="⏲等待"></p>
+<ul>
+<li>
+<p><code>Blocked锁阻塞状态</code></p>
+<p><img src="../../../../桌面/Java-exp/锁阻塞.png" alt="锁阻塞"></p>
+</li>
+<li>
+<p><code>Waiting无限等待状态</code></p>
+<p><img src="../../../../桌面/Java-exp/等待唤醒.png" alt="等待唤醒"></p>
+</li>
+</ul>
+<h3 id="52-%E7%AD%89%E5%BE%85%E5%94%A4%E9%86%92%E6%A1%88%E4%BE%8B-%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><code>5.2 等待唤醒案例-线程间的通信</code></h3>
+<ul>
+<li>等待对象和唤醒对象必须在<code>同一个线程</code>执行,运用同步方法</li>
+<li>等待(<code>wait</code>)和唤醒(<code>notify</code>)只能由同一个<code>锁对象</code>调用</li>
+<li>等待唤醒之后会居胥执行<code>wait</code>之后的代码</li>
+</ul>
+<p>代码:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> Concurr;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WaitandNotify</span>  </span>{
+   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span>  Object object=<span class="hljs-keyword">new</span> Object();<span class="hljs-comment">//锁对象</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+         <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>)
+                {
+                    <span class="hljs-keyword">synchronized</span> (object)
+                    {
+                        System.out.println(<span class="hljs-string">"I want have a meal~"</span>);
+                        <span class="hljs-keyword">try</span> {
+                            object.wait();
+                            System.out.println(<span class="hljs-string">"it takes so delocious by customer"</span>);
+                        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);
+                        }
+                    }
+                }
+            }
+        }).start();
+       <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+
+                <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>)
+                {
+                    <span class="hljs-keyword">try</span>{
+                        Thread.sleep(<span class="hljs-number">5000</span>);
+                    }<span class="hljs-keyword">catch</span> (InterruptedException e) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);
+                    }
+                    <span class="hljs-keyword">synchronized</span> (object)
+                    {
+                        System.out.println(<span class="hljs-string">"it takes 5 minutes to make a meal"</span> );
+                        object.notify();
+                    }
+                }
+            }
+        }).start();
+    }
+
+}
+</div></code></pre>
+<ul>
+<li>带参数的<code>wait()</code>函数,和<code>notifyall()</code>
+<ul>
+<li>进入<code>TimeWaiting</code>状态有两种方式:
+<ul>
+<li>使用<code>sleep(long millis)</code>方法,在时间结束值后,线程睡醒进入到<code>Runnable/Blocked</code>状态</li>
+<li>使用<code>wait(long millis)</code>方法,在时间结束之后,还没有被<code>notify()</code>唤醒,就会自动醒来</li>
+</ul>
+</li>
+<li>唤醒的方法:
+<ul>
+<li><code>notify</code>:如果有多个等待线程,随机唤醒一个线程</li>
+<li><code>notifyall</code>唤醒所有线程;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6%E7%BA%BF%E7%A8%8B%E6%B1%A0"><code>6.线程池</code></h2>
+<ul>
+<li>
+<p>线程池:容器–&gt;集合（ArrayList,HashSet,LinkedList<Thread>,HashMap）</p>
+<ul>
+<li>
+<p>当程序第一次启动的时候，创建多个线程，保存到一个集合中</p>
+</li>
+<li>
+<p>当我们需要使用线程的时候，可以从集合中取出线程来使用</p>
+<p><code>Thread t=list.remove(0);</code>返回的是被移除的元素</p>
+<p><code>Thread t=linkedlist.removeFirst();</code>当我们使用完线程，需要把线程归还给线程池</p>
+</li>
+<li>
+<p><code>list.add(t)/linkedlist.addLast(t);</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>JDK1.5之后JDK内置了线程池，我们可以直接使用</p>
+</blockquote>
+<p><img src="../../../../桌面/Java-exp/线程池.png" alt="线程池"></p>
+<p><code>线程池的好处（空间换时间）</code>：</p>
+<ul>
+<li>降低资源消耗。减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可以执行多个任务</li>
+<li>提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+</ul>
+<p><code>线程池的工厂类用来生成线程池：</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> java.util.concurrent.ThreadPoolExecutor;
+<span class="hljs-comment">//Executors 类中的静态方法：</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> ExecutorService <span class="hljs-title">newFixedThreadPool</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nThreads)</span>
+参数：
+    <span class="hljs-keyword">int</span> nThreads:创建线程池中包含的线程数量
+返回值：
+        ExecutorService接口，可以返回ExecutorService接口的实现类，用ExecutorService接口接收（面向接口编程）
+</span></div></code></pre>
+
+</body>
+</html>

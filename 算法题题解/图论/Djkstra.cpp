@@ -21,3 +21,29 @@ void dijkstra(int start,int dist[]){
     
     
 }
+void dijkstra(int s)
+{
+   memset(dist,0x3f,sizeof dist);
+   dist[s]=0;
+   priority_queue<PII,vector<PII>,greater<PII>heap;
+   heap.push(make_pair(dist[s],s));
+   while(heap.size())
+   {
+        PII t=heap.top();
+        int ver=heap.second;
+        if(st[ver])continue;
+        st[ver]=true;
+        for(int i=h[ver];~i;i=ne[i])
+        {
+            int j=e[i];
+            if(dist[j]>dist[ver]+w[i])
+            {
+                dist[j]=dist[ver]+w[i];
+                heap.push(make_pair(dist[j],j));
+            }
+        }
+
+   }
+   
+
+}

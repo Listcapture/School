@@ -32,6 +32,17 @@ int  get(int x)
 {
   return x/len;
 }
+void add(int a,int b,int c)
+{
+  e[idx]=b,ne[idx]=h[a],h[a]=idx++;
+  memset(h,-1,sizeof h);
+  vector<int>fac;
+  for(int i=0;i<fac.size();i++)
+  {
+    cout<<fac[i]<<" \n"[i==fac.size()-1];
+    
+  }
+}
 bool cmp(query a,query b)
 {
   int blockal=get(a.l),blockbl=get(b.l);

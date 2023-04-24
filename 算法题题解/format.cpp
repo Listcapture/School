@@ -1,11 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int N=2e5+10;
+#define PII pair<int,int>
+#define PLL pair<LL,LL>
+#define lowbit(x) (x&-x)
+#define x first
+#define y second
 #define rep(i,a,b) for(int i=a;i<=b;i++)
 #define dep(i,a,b) for(int i=a;i>=b;i--)
-#define lowbit(x) (x&-x)
-const double eps=1e-8;
+const int N=2e5+10;
 clock_t startTime;
 double getCurrentTime() {
     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
